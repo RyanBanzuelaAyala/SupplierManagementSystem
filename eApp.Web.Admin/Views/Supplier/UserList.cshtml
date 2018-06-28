@@ -1,0 +1,222 @@
+﻿
+
+
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<style>
+    pre {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        border: none;
+        white-space: pre-wrap;
+        background-color: #f9fafc;
+    }
+
+    .clpre {
+        background-color: #f9fafc;
+        border: none;
+        border-left: 1px solid #d2d6de;
+    }
+
+
+    option:empty {
+        display: none;
+    }
+
+    .nNoo {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<div class="row" ng-controller="NewAccountController">
+
+
+    <div class="col-md-6">
+
+        <div class="box box-primary">
+
+            <div class="box-header with-border">
+
+                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                    <h4 class="label no-padding"> SUPPLIER ACTIVATION PROCESS  </h4>
+                </div>
+
+            </div>
+
+            <div class="box-body bg-white">
+
+                <div class="col-md-12">
+                    <hr />
+
+                    <ul class="timeline timeline-inverse">
+
+                        @if (ViewBag.User != null)
+                        {
+                            if (ViewBag.User.ToString() == "NEW")
+                            {
+                                <li>
+                                    <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                                    <div class="timeline-item" style="border-top: none; border-bottom: none">
+                                        <span class="time" style="margin-top: 15px; margin-right: 20px"><a href="/sup/userregion/@ViewBag.Info" class="btn btnX btn-default btn-xs vc"><span class="fa fa-edit text-purple"></span></a></span>
+
+                                        <h3 class="timeline-header bg-white">
+                                            @ViewBag.Info
+                                        </h3>
+
+                                        <div class="timeline-body bg-white">
+                                            Create Account Region
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                foreach (var user in ViewBag.User)
+                                {
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                                        <div class="timeline-item" style="border-top: none; border-bottom: none">
+                                            <span class="time" style="margin-top: 15px; margin-right: 20px"><a href="/sup/useredit/@user.UserName" class="btn btnX btn-default btn-xs vce"><span class="fa fa-gear text-purple"></span></a></span>
+
+                                            <h3 class="timeline-header bg-white">
+                                                @user.Region
+                                            </h3>
+
+                                            <div class="timeline-body bg-white">
+                                                @user.UserName
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                }
+                            }
+
+                        }
+
+                        else
+                        {
+                            <li>
+                                <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                                <div class="timeline-item" style="border-top: none; border-bottom: none">
+                                    <span class="time" style="margin-top: 15px; margin-right: 20px"><a href="/sup/newaccount/@ViewBag.Info" class="btn btnX btn-default btn-xs vc"><span class="fa fa-user text-purple"></span></a></span>
+
+                                    <h3 class="timeline-header bg-white">
+                                        @ViewBag.Info
+                                    </h3>
+
+                                    <div class="timeline-body bg-white">
+                                        Create Account Region
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+
+                    <hr />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="box box-primary">
+
+            <div class="box-header with-border">
+
+                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                    <h4 class="label no-padding"> Supplier Information </h4>
+                </div>
+
+            </div>
+
+            <div class="box-body bg-white">
+
+                <div class="col-md-12">
+                    <hr />
+
+                    <ul class="timeline timeline-inverse">
+
+                        <li>
+                            <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                            <div class="timeline-item">
+                                <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                                <h3 class="timeline-header bg-white">
+                                    <span href=""> New Supplier </span>
+                                </h3>
+
+                                <div class="timeline-body bg-white">
+                                    Adding new supplier in Database
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                            <div class="timeline-item">
+                                <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                                <h3 class="timeline-header bg-white">
+                                    <span href=""> Create Region Account </span>
+                                </h3>
+
+                                <div class="timeline-body bg-white">
+                                    Creates supplier's region wise account for seperate account holder
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                            <div class="timeline-item">
+                                <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                                <h3 class="timeline-header bg-white">
+                                    <span href=""> JDA Activation </span>
+                                </h3>
+
+                                <div class="timeline-body bg-white">
+                                    Activate supplier's account region in JDA.
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="fa fa-clock-o bg-gray"></i>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="~/Scripts/Modularize/System/iQtip.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        iQtip.init('vc', 'Add New Account Region');
+        iQtip.init('vce', 'Modify Account Region');
+    });
+
+</script>

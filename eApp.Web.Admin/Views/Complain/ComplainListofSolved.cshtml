@@ -1,0 +1,105 @@
+﻿
+
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="nav-tabs-custom" style="background-color: #ecf0f5">
+
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-target="#person" data-toggle="tab" style="cursor: pointer">List of Supplier Complain</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <div class="active tab-pane" id="person">
+
+                    <div class="box-body">
+
+                        <table id="example2" class="table table-bordered table-hover">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Supplier Id
+                                    </th>
+                                    <th>
+                                        Title
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>
+                                        Option
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="poes">
+                                @if(ViewBag.RequestQQ != null)
+                                {
+                                    foreach(var req in ViewBag.RequestQQ)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @req.userid <br />
+                                                <small class="label bg-orange">@req.issueid</small>
+                                            </td>
+                                            <td>
+                                                @req.issuename <br />
+                                                <small class="label bg-orange">Date : @req.issuedate</small>
+                                                <small class="label bg-aqua">Type : @req.issuetype</small>
+                                            </td>
+                                            <td>
+                                                @req.status
+                                            </td>
+                                            <td>
+                                                <a href="/cp/complainlistsolvedinfo/@req.issueid" target="_blank" class="btn btn-default btn-xs"><i class="fa fa-mail-reply"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="~/Scripts/Javascript/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.css">
+
+<!-- page script -->
+<script>
+    $(function () {
+        $('#example2').DataTable({
+            "paging": true,
+        });
+
+    });
+</script>
+
+
+

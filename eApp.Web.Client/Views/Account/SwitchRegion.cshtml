@@ -1,0 +1,88 @@
+﻿
+
+<div class="bg-white text-left">
+
+    @if (ViewBag.RequestQQ == null)
+    {
+        <div class="box-body">
+
+            <span>You only allowed to access this current region.</span>
+
+        </div>
+    }
+    else
+    {
+
+        <div class="box-body">
+
+            <div class="col-xs-12">
+
+                <hr />
+
+                <table id="example123" class="table bg-white" width="100%">
+
+                    <tbody class="poes">
+
+                        @foreach (var item in ViewBag.RequestQQ)
+                        {
+                            if (item.UserName != ViewBag.CurrentReg)
+                            {
+                                <tr>
+
+                                    <td class="tablemid" width="50%">
+
+
+                                        <div class="pull-right bg-button" style="background: none; padding: 5px 0px 5px 5px; margin-top: 7px; margin-right: 10px; width: 180px; height: 35px; position: relative">
+
+                                            <div class="input-group input-group-sm">                                                
+                                                <input type="password" class="form-control" style="width: 150px" placeholder="Enter Password..." id="@item.Region">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default btn-flat" onclick="angular.element(document.getElementById('lpc')).scope().Process('@item.Region', '@item.UserName');"><span class="fa fa-arrow-circle-right text-purple"></span></button>
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+
+                                        <small><strong>@item.Region</strong></small>
+
+                                        <hr class="nNoo" />
+
+                                        <small>@item.UserName </small>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </div>
+
+    }
+
+</div>
+
+<style>
+    .qtip {
+        z-index: 9999999999 !important
+    }
+</style>
+
+<script src="~/Scripts/Modularize/System/iQtip.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        iQtip.init('vc', 'Switch to this account region.');
+    });
+
+</script>
+

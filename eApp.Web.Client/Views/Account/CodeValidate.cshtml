@@ -1,0 +1,115 @@
+﻿
+
+<!DOCTYPE html>
+<html ng-app="Login" ng-controller="LoginController">
+
+@Html.Partial("_header")
+
+<body class="hold-transition login-page" style="background-image: url('../../Content/img/danube.jpg'); background-size: cover">
+
+    <style>
+        .login-box-body, .register-box-body {
+            background: none;
+        }
+
+        option:empty {
+            display: none;
+        }
+
+        .clrHR {
+            opacity: 0.3;
+            filter: alpha(opacity=50); /* For IE8 and earlier */
+        }
+
+        .clor {
+            color: #fff;
+        }
+
+        .brd {
+            /*border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;*/
+            box-shadow: 5px 5px 50px #ddd;
+        }
+
+        .xloader {
+            height: 16px;
+            width: 16px;
+            margin-top: 3px;
+        }
+    </style>
+
+    <div class="login-box">
+
+        <div class="login-box-body">
+
+            <hr class="clrHR" style="margin-top: 50px" />
+
+            <div class="text-center">
+
+                <label class="clor text-white"> You will recieve the validation code on your registered mobile no. : @ViewBag.Mobile </label>
+
+                <label class="clor text-white"> If this mobile number ( @ViewBag.Mobile ) is not correct? <br /> <a href="/Account/ResetMobileActivation">Please click here to reset</a></label>
+
+            </div>
+
+            <hr class="clrHR" />
+
+            <div class="form-group has-feedback">
+                <label class="clor">Code Validation. : </label>
+                <input type="text" class="form-control brd validate number" id="code" placeholder="00xxx" autocomplete="off">
+                <span class="fa fa-lock form-control-feedback"></span>
+            </div>
+
+            <hr class="clrHR" />
+
+            <div class="form-group has-feedback text-center">
+                <button type="submit" class="btn btn-default brd ujk" ng-click="Validate()"> Validate <i class="fa fa-edit"></i> </button>
+
+                <button type="button" class="btn btn-default brd ujk" ng-click="Resend()" style="display: none" id="resdn"> Re-send Code <i class="fa fa-edit"></i> </button>
+            </div>
+
+            <div class="form-group has-feedback text-center">
+
+                <span id="countxx"></span>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    @Html.Partial("_footer")
+
+
+    @Scripts.Render("~/bundles/Login")
+
+
+</body>
+</html>
+
+<script>
+    
+
+    $(function () {
+
+        var timeLeft = 30;
+        var elem = document.getElementById('countxx');
+
+        var timerId = setInterval(countdown, 1000);
+
+        function countdown() {
+            if (timeLeft == 0) {
+                clearTimeout(timerId);
+                $('#resdn').show();
+                $('#countxx').hide();
+            } else {
+                elem.innerHTML = timeLeft + ' seconds remaining for re-sending code';
+                timeLeft--;
+            }
+        }
+        
+    });
+</script>

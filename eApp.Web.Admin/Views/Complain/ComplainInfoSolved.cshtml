@@ -1,0 +1,81 @@
+﻿
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<style>
+    pre {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        border: none;
+        white-space: nowrap;
+    }
+
+    textarea {
+        resize: none;
+    }
+</style>
+
+<div class="row" ng-controller="ComplainController">
+
+    <div class="col-md-12">
+        <div class="nav-tabs-custom" style="background-color: #ecf0f5">
+
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-target="#person" data-toggle="tab" style="cursor: pointer">Complain Conversation</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <div class="active tab-pane" id="person">
+
+                    <div class="box-body">
+
+                        <ul class="timeline timeline-inverse">
+
+                            @if(ViewBag.RequestQQ != null)
+                            {
+                                foreach(var req in ViewBag.RequestQQ)
+                                {
+                                    <li>
+                                        <div class="timeline-item" style="background-color: transparent; border: none">
+
+                                            <div class="post">
+                                                <div class="user-block">
+                                                    <img src="~/Content/img/user.png" class="img-circle" alt="User Image">
+                                                    <span class='username'>
+                                                        <a href="#">@req.agentid</a>
+                                                    </span>
+                                                    <span class='description'>Shared publicly - @req.remarks</span>
+                                                </div>
+                                                <pre>
+                                                    @req.reply
+                                                </pre>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                }
+                            }
+                            else
+                            {
+                                <span>No Response...</span>
+                            }
+
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,1510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dnbmssqlModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Region" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="_UserClaim">
+          <Key>
+            <PropertyRef Name="UserClaimId" />
+          </Key>
+          <Property Name="UserClaimId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="_UserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_UserRole">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_po">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="division" Type="varchar" MaxLength="3" />
+          <Property Name="link" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="filestatus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="released" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="expiration" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="isexpired" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_reqbrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ffrom" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ddays" Type="int" Nullable="false" />
+          <Property Name="tto" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="brandcode" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="daterequested" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="exptn" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_reqdept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ffrom" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ddays" Type="int" Nullable="false" />
+          <Property Name="tto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="deptcode" Type="int" Nullable="false" />
+          <Property Name="deptsub" Type="int" Nullable="false" />
+          <Property Name="dclass" Type="int" Nullable="false" />
+          <Property Name="classsub" Type="int" Nullable="false" />
+          <Property Name="daterequested" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="exptn" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_reqlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="dreq" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="rtype" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="exprtn" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="sts" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="lnk" Type="varchar" MaxLength="250" />
+          <Property Name="lnka" Type="varchar" MaxLength="250" />
+          <Property Name="exprd" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_reqsku">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ffrom" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ddays" Type="int" Nullable="false" />
+          <Property Name="tto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="sku1" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="sku2" Type="varchar" MaxLength="20" />
+          <Property Name="sku3" Type="varchar" MaxLength="20" />
+          <Property Name="sku4" Type="varchar" MaxLength="20" />
+          <Property Name="sku5" Type="varchar" MaxLength="20" />
+          <Property Name="daterequested" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="exptn" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_rtv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="division" Type="varchar" MaxLength="3" />
+          <Property Name="link" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="filestatus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="released" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="expiration" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="isexpired" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_sms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="icurrent" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="timesent" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="po">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="division" Type="varchar" MaxLength="3" />
+          <Property Name="link" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="filestatus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="released" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="expiration" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="isexpired" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqbrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ffrom" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ddays" Type="int" Nullable="false" />
+          <Property Name="tto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="brandcode" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="daterequested" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="exptn" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqdept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ffrom" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ddays" Type="int" Nullable="false" />
+          <Property Name="tto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="deptcode" Type="int" Nullable="false" />
+          <Property Name="deptsub" Type="int" Nullable="false" />
+          <Property Name="dclass" Type="int" Nullable="false" />
+          <Property Name="classsub" Type="int" Nullable="false" />
+          <Property Name="daterequested" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="exptn" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="dreq" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="rtype" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="exprtn" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="sts" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="lnk" Type="varchar" MaxLength="250" />
+          <Property Name="lnka" Type="varchar" MaxLength="250" />
+          <Property Name="exprd" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqpayment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="invoicelist" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="daterequested" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="msg" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="reqpaymentlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="invoicenum" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqpaystatement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="statementlist" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="dateuploaded" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqsku">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reqid" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ffrom" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ddays" Type="int" Nullable="false" />
+          <Property Name="tto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="sku1" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="sku2" Type="varchar" MaxLength="20" />
+          <Property Name="sku3" Type="varchar" MaxLength="20" />
+          <Property Name="sku4" Type="varchar" MaxLength="20" />
+          <Property Name="sku5" Type="varchar" MaxLength="20" />
+          <Property Name="daterequested" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="exptn" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rtv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="division" Type="varchar" MaxLength="3" />
+          <Property Name="link" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="filestatus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="released" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="expiration" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="isexpired" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="icurrent" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="timesent" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supplieractivtion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="30" />
+          <Property Name="sms" Type="varchar" MaxLength="20" />
+          <Property Name="status" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="supplierlog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="specific" Type="datetime" Nullable="false" />
+          <Property Name="log" Type="datetime" Nullable="false" />
+          <Property Name="activity" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="suppliermobileactivtion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="30" />
+          <Property Name="emailadd" Type="varchar" MaxLength="50" />
+          <Property Name="codesms" Type="varchar" MaxLength="20" />
+          <Property Name="status" Type="varchar" MaxLength="20" />
+          <Property Name="datetimesent" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="supplierregion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="30" />
+          <Property Name="sms" Type="varchar" MaxLength="20" />
+          <Property Name="status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="syssupcomp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="issueid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="issuename" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="issuetype" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="issuedate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="remarks" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="syssupcomprply">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="agentid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="issueid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reply" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="remarks" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="syssuplog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="sysaction" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="sysdate" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userapp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="login" Type="datetime" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="_User" Type="Self._User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="_UserClaim" Type="Self._UserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="_User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="_UserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="_User" Type="Self._User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="_UserLogin" Type="Self._UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="_User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="_UserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="_Role" Type="Self._Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="_UserRole" Type="Self._UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="_Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="_UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="_User" Type="Self._User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="_UserRole" Type="Self._UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="_User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="_UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dnbmssqlModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_Role" EntityType="Self._Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_User" EntityType="Self._User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_UserClaim" EntityType="Self._UserClaim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_UserLogin" EntityType="Self._UserLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_UserRole" EntityType="Self._UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ar_po" EntityType="Self.ar_po" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="ar_reqbrand" EntityType="Self.ar_reqbrand" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="ar_reqdept" EntityType="Self.ar_reqdept" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="ar_reqlist" EntityType="Self.ar_reqlist" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="ar_reqsku" EntityType="Self.ar_reqsku" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="ar_rtv" EntityType="Self.ar_rtv" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="ar_sms" EntityType="Self.ar_sms" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="po" EntityType="Self.po" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="reqbrand" EntityType="Self.reqbrand" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="reqdept" EntityType="Self.reqdept" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="reqlist" EntityType="Self.reqlist" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="reqpayment" EntityType="Self.reqpayment" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="reqpaymentlist" EntityType="Self.reqpaymentlist" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="reqpaystatement" EntityType="Self.reqpaystatement" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="reqsku" EntityType="Self.reqsku" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="rtv" EntityType="Self.rtv" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="sms" EntityType="Self.sms" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="supplieractivtion" EntityType="Self.supplieractivtion" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="supplierlog" EntityType="Self.supplierlog" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="suppliermobileactivtion" EntityType="Self.suppliermobileactivtion" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="supplierregion" EntityType="Self.supplierregion" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="syssupcomp" EntityType="Self.syssupcomp" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="syssupcomprply" EntityType="Self.syssupcomprply" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="syssuplog" EntityType="Self.syssuplog" Schema="devqq" store:Type="Tables" />
+          <EntitySet Name="userapp" EntityType="Self.userapp" Schema="devqq" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="_User" EntitySet="_User" />
+            <End Role="_UserClaim" EntitySet="_UserClaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="_User" EntitySet="_User" />
+            <End Role="_UserLogin" EntitySet="_UserLogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="_Role" EntitySet="_Role" />
+            <End Role="_UserRole" EntitySet="_UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="_User" EntitySet="_User" />
+            <End Role="_UserRole" EntitySet="_UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dnbmssqlModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="C_Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="C_User" Relationship="Self.C_UserRole" FromRole="C_Role" ToRole="C_User" />
+        </EntityType>
+        <EntityType Name="C_User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="C_UserClaim" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="C_User" ToRole="C_UserClaim" />
+          <NavigationProperty Name="C_UserLogin" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="C_User" ToRole="C_UserLogin" />
+          <NavigationProperty Name="C_Role" Relationship="Self.C_UserRole" FromRole="C_User" ToRole="C_Role" />
+        </EntityType>
+        <EntityType Name="C_UserClaim">
+          <Key>
+            <PropertyRef Name="UserClaimId" />
+          </Key>
+          <Property Name="UserClaimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="C_User" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="C_UserClaim" ToRole="C_User" />
+        </EntityType>
+        <EntityType Name="C_UserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="C_User" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="C_UserLogin" ToRole="C_User" />
+        </EntityType>
+        <EntityType Name="ar_po">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="division" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="filestatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="released" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="expiration" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isexpired" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_reqbrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ffrom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ddays" Type="Int32" Nullable="false" />
+          <Property Name="tto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="brandcode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="daterequested" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exptn" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_reqdept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ffrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ddays" Type="Int32" Nullable="false" />
+          <Property Name="tto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deptcode" Type="Int32" Nullable="false" />
+          <Property Name="deptsub" Type="Int32" Nullable="false" />
+          <Property Name="dclass" Type="Int32" Nullable="false" />
+          <Property Name="classsub" Type="Int32" Nullable="false" />
+          <Property Name="daterequested" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exptn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_reqlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dreq" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rtype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exprtn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sts" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lnk" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="lnka" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="exprd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_reqsku">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ffrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ddays" Type="Int32" Nullable="false" />
+          <Property Name="tto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sku1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sku2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sku3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sku4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sku5" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="daterequested" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exptn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_rtv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="division" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="filestatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="released" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="expiration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isexpired" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ar_sms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="icurrent" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="timesent" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="po">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="division" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="filestatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="released" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="expiration" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isexpired" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqbrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ffrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ddays" Type="Int32" Nullable="false" />
+          <Property Name="tto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="brandcode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="daterequested" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exptn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqdept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ffrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ddays" Type="Int32" Nullable="false" />
+          <Property Name="tto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deptcode" Type="Int32" Nullable="false" />
+          <Property Name="deptsub" Type="Int32" Nullable="false" />
+          <Property Name="dclass" Type="Int32" Nullable="false" />
+          <Property Name="classsub" Type="Int32" Nullable="false" />
+          <Property Name="daterequested" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exptn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dreq" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rtype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exprtn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sts" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lnk" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="lnka" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="exprd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqpayment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="invoicelist" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="daterequested" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="msg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="reqpaymentlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="invoicenum" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqpaystatement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="statementlist" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateuploaded" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reqsku">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reqid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ffrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ddays" Type="Int32" Nullable="false" />
+          <Property Name="tto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sku1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sku2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sku3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sku4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sku5" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="daterequested" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exptn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rtv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="division" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="filestatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="released" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="expiration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isexpired" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="icurrent" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="timesent" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supplieractivtion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="sms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="supplierlog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="specific" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="log" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="activity" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supplierregion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="sms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="syssupcomp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issueid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issuename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issuetype" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issuedate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="syssupcomprply">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="agentid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issueid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reply" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="syssuplog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sysaction" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sysdate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userapp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="login" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="C_User" Type="Self.C_User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="C_UserClaim" Type="Self.C_UserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="C_UserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="C_User" Type="Self.C_User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="C_UserLogin" Type="Self.C_UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="C_UserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C_UserRole">
+          <End Role="C_Role" Type="Self.C_Role" Multiplicity="*" />
+          <End Role="C_User" Type="Self.C_User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="dnbmssqlEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="C_Role" EntityType="Self.C_Role" />
+          <EntitySet Name="C_User" EntityType="Self.C_User" />
+          <EntitySet Name="C_UserClaim" EntityType="Self.C_UserClaim" />
+          <EntitySet Name="C_UserLogin" EntityType="Self.C_UserLogin" />
+          <EntitySet Name="ar_po" EntityType="Self.ar_po" />
+          <EntitySet Name="ar_reqbrand" EntityType="Self.ar_reqbrand" />
+          <EntitySet Name="ar_reqdept" EntityType="Self.ar_reqdept" />
+          <EntitySet Name="ar_reqlist" EntityType="Self.ar_reqlist" />
+          <EntitySet Name="ar_reqsku" EntityType="Self.ar_reqsku" />
+          <EntitySet Name="ar_rtv" EntityType="Self.ar_rtv" />
+          <EntitySet Name="ar_sms" EntityType="Self.ar_sms" />
+          <EntitySet Name="poes" EntityType="Self.po" />
+          <EntitySet Name="reqbrands" EntityType="Self.reqbrand" />
+          <EntitySet Name="reqdepts" EntityType="Self.reqdept" />
+          <EntitySet Name="reqlists" EntityType="Self.reqlist" />
+          <EntitySet Name="reqpayments" EntityType="Self.reqpayment" />
+          <EntitySet Name="reqpaymentlists" EntityType="Self.reqpaymentlist" />
+          <EntitySet Name="reqpaystatements" EntityType="Self.reqpaystatement" />
+          <EntitySet Name="reqskus" EntityType="Self.reqsku" />
+          <EntitySet Name="rtvs" EntityType="Self.rtv" />
+          <EntitySet Name="sms" EntityType="Self.sm" />
+          <EntitySet Name="suppliers" EntityType="Self.supplier" />
+          <EntitySet Name="supplieractivtions" EntityType="Self.supplieractivtion" />
+          <EntitySet Name="supplierlogs" EntityType="Self.supplierlog" />
+          <EntitySet Name="supplierregions" EntityType="Self.supplierregion" />
+          <EntitySet Name="syssupcomps" EntityType="Self.syssupcomp" />
+          <EntitySet Name="syssupcomprplies" EntityType="Self.syssupcomprply" />
+          <EntitySet Name="syssuplogs" EntityType="Self.syssuplog" />
+          <EntitySet Name="userapps" EntityType="Self.userapp" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="C_User" EntitySet="C_User" />
+            <End Role="C_UserClaim" EntitySet="C_UserClaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="C_User" EntitySet="C_User" />
+            <End Role="C_UserLogin" EntitySet="C_UserLogin" />
+          </AssociationSet>
+          <AssociationSet Name="C_UserRole" Association="Self.C_UserRole">
+            <End Role="C_Role" EntitySet="C_Role" />
+            <End Role="C_User" EntitySet="C_User" />
+          </AssociationSet>
+          <EntitySet Name="suppliermobileactivtions" EntityType="dnbmssqlModel.suppliermobileactivtion" />
+        </EntityContainer>
+        <EntityType Name="suppliermobileactivtion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="region" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="emailadd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codesms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="datetimesent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dnbmssqlModelStoreContainer" CdmEntityContainer="dnbmssqlEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="dnbmssqlModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Role">
+            <EntityTypeMapping TypeName="dnbmssqlModel.C_Role">
+              <MappingFragment StoreEntitySet="_Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_User">
+            <EntityTypeMapping TypeName="dnbmssqlModel.C_User">
+              <MappingFragment StoreEntitySet="_User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_UserClaim">
+            <EntityTypeMapping TypeName="dnbmssqlModel.C_UserClaim">
+              <MappingFragment StoreEntitySet="_UserClaim">
+                <ScalarProperty Name="UserClaimId" ColumnName="UserClaimId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_UserLogin">
+            <EntityTypeMapping TypeName="dnbmssqlModel.C_UserLogin">
+              <MappingFragment StoreEntitySet="_UserLogin">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ar_po">
+            <EntityTypeMapping TypeName="dnbmssqlModel.ar_po">
+              <MappingFragment StoreEntitySet="ar_po">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="pono" ColumnName="pono" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="filestatus" ColumnName="filestatus" />
+                <ScalarProperty Name="released" ColumnName="released" />
+                <ScalarProperty Name="expiration" ColumnName="expiration" />
+                <ScalarProperty Name="isexpired" ColumnName="isexpired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ar_reqbrand">
+            <EntityTypeMapping TypeName="dnbmssqlModel.ar_reqbrand">
+              <MappingFragment StoreEntitySet="ar_reqbrand">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="ffrom" ColumnName="ffrom" />
+                <ScalarProperty Name="ddays" ColumnName="ddays" />
+                <ScalarProperty Name="tto" ColumnName="tto" />
+                <ScalarProperty Name="brandcode" ColumnName="brandcode" />
+                <ScalarProperty Name="daterequested" ColumnName="daterequested" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="exptn" ColumnName="exptn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ar_reqdept">
+            <EntityTypeMapping TypeName="dnbmssqlModel.ar_reqdept">
+              <MappingFragment StoreEntitySet="ar_reqdept">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="ffrom" ColumnName="ffrom" />
+                <ScalarProperty Name="ddays" ColumnName="ddays" />
+                <ScalarProperty Name="tto" ColumnName="tto" />
+                <ScalarProperty Name="deptcode" ColumnName="deptcode" />
+                <ScalarProperty Name="deptsub" ColumnName="deptsub" />
+                <ScalarProperty Name="dclass" ColumnName="dclass" />
+                <ScalarProperty Name="classsub" ColumnName="classsub" />
+                <ScalarProperty Name="daterequested" ColumnName="daterequested" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="exptn" ColumnName="exptn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ar_reqlist">
+            <EntityTypeMapping TypeName="dnbmssqlModel.ar_reqlist">
+              <MappingFragment StoreEntitySet="ar_reqlist">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="dreq" ColumnName="dreq" />
+                <ScalarProperty Name="rtype" ColumnName="rtype" />
+                <ScalarProperty Name="exprtn" ColumnName="exprtn" />
+                <ScalarProperty Name="sts" ColumnName="sts" />
+                <ScalarProperty Name="lnk" ColumnName="lnk" />
+                <ScalarProperty Name="lnka" ColumnName="lnka" />
+                <ScalarProperty Name="exprd" ColumnName="exprd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ar_reqsku">
+            <EntityTypeMapping TypeName="dnbmssqlModel.ar_reqsku">
+              <MappingFragment StoreEntitySet="ar_reqsku">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="ffrom" ColumnName="ffrom" />
+                <ScalarProperty Name="ddays" ColumnName="ddays" />
+                <ScalarProperty Name="tto" ColumnName="tto" />
+                <ScalarProperty Name="sku1" ColumnName="sku1" />
+                <ScalarProperty Name="sku2" ColumnName="sku2" />
+                <ScalarProperty Name="sku3" ColumnName="sku3" />
+                <ScalarProperty Name="sku4" ColumnName="sku4" />
+                <ScalarProperty Name="sku5" ColumnName="sku5" />
+                <ScalarProperty Name="daterequested" ColumnName="daterequested" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="exptn" ColumnName="exptn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ar_rtv">
+            <EntityTypeMapping TypeName="dnbmssqlModel.ar_rtv">
+              <MappingFragment StoreEntitySet="ar_rtv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="pono" ColumnName="pono" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="filestatus" ColumnName="filestatus" />
+                <ScalarProperty Name="released" ColumnName="released" />
+                <ScalarProperty Name="expiration" ColumnName="expiration" />
+                <ScalarProperty Name="isexpired" ColumnName="isexpired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ar_sms">
+            <EntityTypeMapping TypeName="dnbmssqlModel.ar_sms">
+              <MappingFragment StoreEntitySet="ar_sms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="icurrent" ColumnName="icurrent" />
+                <ScalarProperty Name="timesent" ColumnName="timesent" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="poes">
+            <EntityTypeMapping TypeName="dnbmssqlModel.po">
+              <MappingFragment StoreEntitySet="po">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="pono" ColumnName="pono" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="filestatus" ColumnName="filestatus" />
+                <ScalarProperty Name="released" ColumnName="released" />
+                <ScalarProperty Name="expiration" ColumnName="expiration" />
+                <ScalarProperty Name="isexpired" ColumnName="isexpired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reqbrands">
+            <EntityTypeMapping TypeName="dnbmssqlModel.reqbrand">
+              <MappingFragment StoreEntitySet="reqbrand">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="ffrom" ColumnName="ffrom" />
+                <ScalarProperty Name="ddays" ColumnName="ddays" />
+                <ScalarProperty Name="tto" ColumnName="tto" />
+                <ScalarProperty Name="brandcode" ColumnName="brandcode" />
+                <ScalarProperty Name="daterequested" ColumnName="daterequested" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="exptn" ColumnName="exptn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reqdepts">
+            <EntityTypeMapping TypeName="dnbmssqlModel.reqdept">
+              <MappingFragment StoreEntitySet="reqdept">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="ffrom" ColumnName="ffrom" />
+                <ScalarProperty Name="ddays" ColumnName="ddays" />
+                <ScalarProperty Name="tto" ColumnName="tto" />
+                <ScalarProperty Name="deptcode" ColumnName="deptcode" />
+                <ScalarProperty Name="deptsub" ColumnName="deptsub" />
+                <ScalarProperty Name="dclass" ColumnName="dclass" />
+                <ScalarProperty Name="classsub" ColumnName="classsub" />
+                <ScalarProperty Name="daterequested" ColumnName="daterequested" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="exptn" ColumnName="exptn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reqlists">
+            <EntityTypeMapping TypeName="dnbmssqlModel.reqlist">
+              <MappingFragment StoreEntitySet="reqlist">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="dreq" ColumnName="dreq" />
+                <ScalarProperty Name="rtype" ColumnName="rtype" />
+                <ScalarProperty Name="exprtn" ColumnName="exprtn" />
+                <ScalarProperty Name="sts" ColumnName="sts" />
+                <ScalarProperty Name="lnk" ColumnName="lnk" />
+                <ScalarProperty Name="lnka" ColumnName="lnka" />
+                <ScalarProperty Name="exprd" ColumnName="exprd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reqpayments">
+            <EntityTypeMapping TypeName="dnbmssqlModel.reqpayment">
+              <MappingFragment StoreEntitySet="reqpayment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="invoicelist" ColumnName="invoicelist" />
+                <ScalarProperty Name="daterequested" ColumnName="daterequested" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="msg" ColumnName="msg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reqpaymentlists">
+            <EntityTypeMapping TypeName="dnbmssqlModel.reqpaymentlist">
+              <MappingFragment StoreEntitySet="reqpaymentlist">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="invoicenum" ColumnName="invoicenum" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reqpaystatements">
+            <EntityTypeMapping TypeName="dnbmssqlModel.reqpaystatement">
+              <MappingFragment StoreEntitySet="reqpaystatement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="statementlist" ColumnName="statementlist" />
+                <ScalarProperty Name="dateuploaded" ColumnName="dateuploaded" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reqskus">
+            <EntityTypeMapping TypeName="dnbmssqlModel.reqsku">
+              <MappingFragment StoreEntitySet="reqsku">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="reqid" ColumnName="reqid" />
+                <ScalarProperty Name="ffrom" ColumnName="ffrom" />
+                <ScalarProperty Name="ddays" ColumnName="ddays" />
+                <ScalarProperty Name="tto" ColumnName="tto" />
+                <ScalarProperty Name="sku1" ColumnName="sku1" />
+                <ScalarProperty Name="sku2" ColumnName="sku2" />
+                <ScalarProperty Name="sku3" ColumnName="sku3" />
+                <ScalarProperty Name="sku4" ColumnName="sku4" />
+                <ScalarProperty Name="sku5" ColumnName="sku5" />
+                <ScalarProperty Name="daterequested" ColumnName="daterequested" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="exptn" ColumnName="exptn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rtvs">
+            <EntityTypeMapping TypeName="dnbmssqlModel.rtv">
+              <MappingFragment StoreEntitySet="rtv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="pono" ColumnName="pono" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="filestatus" ColumnName="filestatus" />
+                <ScalarProperty Name="released" ColumnName="released" />
+                <ScalarProperty Name="expiration" ColumnName="expiration" />
+                <ScalarProperty Name="isexpired" ColumnName="isexpired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sms">
+            <EntityTypeMapping TypeName="dnbmssqlModel.sm">
+              <MappingFragment StoreEntitySet="sms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="icurrent" ColumnName="icurrent" />
+                <ScalarProperty Name="timesent" ColumnName="timesent" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suppliers">
+            <EntityTypeMapping TypeName="dnbmssqlModel.supplier">
+              <MappingFragment StoreEntitySet="supplier">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="supplieractivtions">
+            <EntityTypeMapping TypeName="dnbmssqlModel.supplieractivtion">
+              <MappingFragment StoreEntitySet="supplieractivtion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="sms" ColumnName="sms" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="supplierlogs">
+            <EntityTypeMapping TypeName="dnbmssqlModel.supplierlog">
+              <MappingFragment StoreEntitySet="supplierlog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="specific" ColumnName="specific" />
+                <ScalarProperty Name="log" ColumnName="log" />
+                <ScalarProperty Name="activity" ColumnName="activity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="supplierregions">
+            <EntityTypeMapping TypeName="dnbmssqlModel.supplierregion">
+              <MappingFragment StoreEntitySet="supplierregion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="sms" ColumnName="sms" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="syssupcomps">
+            <EntityTypeMapping TypeName="dnbmssqlModel.syssupcomp">
+              <MappingFragment StoreEntitySet="syssupcomp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="issueid" ColumnName="issueid" />
+                <ScalarProperty Name="issuename" ColumnName="issuename" />
+                <ScalarProperty Name="issuetype" ColumnName="issuetype" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="issuedate" ColumnName="issuedate" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="syssupcomprplies">
+            <EntityTypeMapping TypeName="dnbmssqlModel.syssupcomprply">
+              <MappingFragment StoreEntitySet="syssupcomprply">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="agentid" ColumnName="agentid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="issueid" ColumnName="issueid" />
+                <ScalarProperty Name="reply" ColumnName="reply" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="syssuplogs">
+            <EntityTypeMapping TypeName="dnbmssqlModel.syssuplog">
+              <MappingFragment StoreEntitySet="syssuplog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="sysaction" ColumnName="sysaction" />
+                <ScalarProperty Name="sysdate" ColumnName="sysdate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userapps">
+            <EntityTypeMapping TypeName="dnbmssqlModel.userapp">
+              <MappingFragment StoreEntitySet="userapp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="C_UserRole" TypeName="dnbmssqlModel.C_UserRole" StoreEntitySet="_UserRole">
+            <EndProperty Name="C_Role">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="C_User">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="suppliermobileactivtions">
+            <EntityTypeMapping TypeName="dnbmssqlModel.suppliermobileactivtion">
+              <MappingFragment StoreEntitySet="suppliermobileactivtion">
+                <ScalarProperty Name="datetimesent" ColumnName="datetimesent" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="codesms" ColumnName="codesms" />
+                <ScalarProperty Name="emailadd" ColumnName="emailadd" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

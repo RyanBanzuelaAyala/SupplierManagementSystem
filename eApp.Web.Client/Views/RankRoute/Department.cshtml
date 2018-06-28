@@ -1,0 +1,138 @@
+﻿
+
+<div class="row" ng-controller="DeptController">
+
+    <div class="col-md-12">
+        <div class="nav-tabs-custom" style="background-color: #ecf0f5">
+
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-target="#person" data-toggle="tab" style="cursor: pointer">RANKING REQUEST by DEPARTMENT</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <div class="active tab-pane" id="person">
+
+                    <div class="box-body">
+
+                        <form role="form" ng-submit="requestDEPT()">
+
+                            <div class="col-md-6">
+                                
+                                    <!-- form start -->
+                                    <div class="box-body">
+
+                                        <hr />
+
+                                        <div class="form-group">
+                                            <label>Department Code : </label>
+                                            <div class="input-group input-group-sm">
+
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default btn-flat" ng-click="hasDept()" ng-show="deptForm.xx1">Select Department</button>
+                                                </span>
+
+                                                <select id="dDept" class="form-control" style="height: 30px" ng-model="deptForm.ldept" ng-hide="deptForm.xx1" ng-disabled="deptForm.t1" ng-click="searchDEPT(deptForm.ldept)"></select>
+                                            </div>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group" ng-hide="deptForm.xx2">
+                                            <label>Sub Department : </label>
+                                            <div class="input-group input-group-sm">
+
+                                                <select id="sDept" class="form-control" style="height: 30px" ng-model="deptForm.lsdept" ng-disabled="deptForm.t2" ng-click="searchsDEPT(deptForm.lsdept)"></select>
+
+                                            </div>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group" ng-hide="deptForm.xx3">
+                                            <label>Class : </label>
+                                            <div class="input-group input-group-sm">
+
+                                                <select id="iClass" class="form-control" style="height: 30px" ng-model="deptForm.liclass" ng-disabled="deptForm.t3" ng-click="searchiDEPT(deptForm.liclass)"></select>
+
+                                            </div>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group" ng-hide="deptForm.xx4">
+                                            <label>Sub Class : </label>
+                                            <div class="input-group input-group-sm">
+
+                                                <select id="siClass" class="form-control" style="height: 30px" ng-model="deptForm.lsiclass" ng-disabled="deptForm.t4" ng-click="searchsiDEPT(deptForm.lsiclass)"></select>
+
+                                            </div>
+                                        </div><!-- /.form-group -->
+
+                                        <hr />
+
+                                        <div class="form-group" ng-hide="deptForm.xx4">
+                                            <button type="button" ng-click="searchReset()" class="btn btn-default">Reset</button>
+                                            <button type="submit" class="btn btn-default" ng-disabled="deptForm.xx5">Submit</button>
+                                            <img ng-show="deptForm.isLoading" src="~/Content/img/294.gif" style="height: 16px; width: 16px;" />
+                                        </div><!-- /.form-group -->
+
+                                    </div><!-- /.box-body -->
+                                 
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                
+
+                                    <div class="box-body">
+
+                                        <hr />
+
+                                        <div class="form-group">
+                                            <label>To this Date : </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" class="form-control" ng-model="deptForm.currentdate" readonly>
+                                            </div><!-- /.input group -->
+                                        </div><!-- /.form group -->
+                                        
+                                        <div class="form-group">
+                                            <label>How many days : </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-plus-sign"></i>
+                                                </div>
+                                                <input class="form-control" type="text" ng-model="deptForm.howmanydays" readonly>
+                                            </div><!-- /.input group -->
+                                        </div><!-- /.form group -->
+                                        
+                                        <div class="form-group">
+                                            <label>From this Date : </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" class="form-control" ng-model="deptForm.archivedate" readonly>
+                                            </div><!-- /.input group -->
+                                        </div><!-- /.form group -->
+                                        
+                                    <hr />
+
+                                    </div><!-- /.box-body -->
+                                
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+
+<link href="~/Scripts/Javascript/plugins/select2/select2.min.css" rel="stylesheet" />
+

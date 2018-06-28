@@ -1,0 +1,71 @@
+﻿
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<div class="box box-solid">
+    <div class="box-body padding">
+        <!-- left column -->
+        <div class="col-md-6">
+            <h3>SUPPLIER ACTIVITIES</h3>
+            <p>Monitor Supplier's Activities.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-controller="MonitorController">
+    <div class="col-md-6">
+        <!-- general form elements -->
+
+        <div class="box box-solid">
+
+
+            <form role="form" method="get" ng-submit="search()">
+                <div class="box-body padding">
+
+
+                    <div class="col-md-12">
+                        <h4>Generate Supplier Activities</h4>
+                        <hr />
+
+                        <div class="form-group">
+                            <label>Date range:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control" data-date-format='yyyy-mm-dd' id="sDate" ng-model="ggSearch.ixDate" name="ixDate" autocomplete="off" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <hr />
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<link href="~/Scripts/Javascript/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+<script src="~/Scripts/Javascript/plugins/datepicker/bootstrap-datepicker.js"></script>
+
+<script>
+
+    $(function () {
+
+        $('#sDate').datepicker().on('changeDate', function () {
+            $(this).datepicker('hide');
+        });
+
+
+    });
+
+</script>

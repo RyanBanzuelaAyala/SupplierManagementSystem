@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html ng-app="Login" ng-controller="LoginController">
+
+@Html.Partial("_header")
+
+<body class="hold-transition login-page" style="background-image: url('../../Content/img/danube.jpg'); background-size: cover">
+
+    <style>
+        .login-box-body, .register-box-body {
+            background: none;
+        }
+
+        option:empty {
+            display: none;
+        }
+
+        .clrHR {
+            opacity: 0.3;
+            filter: alpha(opacity=50); /* For IE8 and earlier */
+        }
+
+        .clor {
+            color: #fff;
+        }
+
+        .brd {
+            /*border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;*/
+            box-shadow: 5px 5px 50px #ddd;
+        }
+
+        .xloader {
+            height: 16px;
+            width: 16px;
+            margin-top: 3px;
+        }
+    </style>
+
+    <div class="login-box">
+
+        <div class="login-box-body">
+
+            <hr class="clrHR" style="margin-top: 150px" />
+
+            <div class="form-group has-feedback">
+                <label class="clor">Account Region : </label>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <select class="form-control validate brd" style="width: 130px" id="regg">
+                            <optgroup label="Region">
+                                <option>JED</option>
+                                <option>KHB</option>
+                                <option>RYD</option>
+                                <option>SOU</option>
+                            </optgroup>
+                            <optgroup label="Bakery">
+                                <option>BKJ</option>
+                                <option>BKR</option>
+                                <option>BKK</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <input type="text" class="form-control brd validate" id="username" placeholder="SUPPLIER ID" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label class="clor">Password : </label>
+                <input type="password" class="form-control brd validate" id="password" placeholder="PASSWORD" ng-keydown="Process($event)">
+                <span class="fa fa-lock form-control-feedback"></span>
+            </div>
+
+            <hr class="clrHR" />
+
+            <div class="form-group has-feedback text-center">
+                <button type="submit" class="btn btn-default brd" ng-click="Login()"> Sign-in <i class="fa fa-sign-in"></i> </button>
+            </div>
+
+            <hr class="clrHR" />
+
+
+        </div>
+
+    </div>
+
+
+    @Html.Partial("_footer")
+
+    @Scripts.Render("~/bundles/Login")
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ec75417d9b3944d29a47f7a7177fef04" Name="Diagram1">
+        <EntityTypeShape EntityType="dnbmssqlModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.C_Role" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.C_User" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.C_UserClaim" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.C_UserLogin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ar_po" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ar_reqbrand" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ar_reqdept" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ar_reqlist" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ar_reqsku" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ar_rtv" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ar_sms" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.po" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.reqbrand" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.reqdept" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.reqlist" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.reqpayment" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.reqpaymentlist" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.reqpaystatement" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.reqsku" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.rtv" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.sm" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.supplier" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.supplieractivtion" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.supplierlog" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.supplierregion" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.syssupcomp" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.syssupcomprply" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.syssuplog" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.userapp" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ViewRankingBrandRequest" Width="1.5" PointX="12.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ViewRankingDeptRequest" Width="1.5" PointX="14.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dnbmssqlModel.ViewRankingSKURequest" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="dnbmssqlModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="dnbmssqlModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="dnbmssqlModel.C_UserRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

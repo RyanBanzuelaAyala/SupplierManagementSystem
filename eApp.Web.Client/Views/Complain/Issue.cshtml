@@ -1,0 +1,283 @@
+﻿
+
+
+
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<style>
+    pre {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        border: none;
+        white-space: pre-wrap;
+        background-color: #f9fafc;
+    }
+
+    .clpre {
+        background-color: #f9fafc;
+        border: none;
+        border-left: 1px solid #d2d6de;
+    }
+
+
+    option:empty {
+        display: none;
+    }
+
+    .nNoo {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<div class="row">
+
+
+    <div class="col-md-8">
+
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+
+                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                    <h4 class="label no-padding"> TICKET CREATION - COMPLAIN </h4>
+                </div>
+            </div>
+
+
+            <div class="box-body bg-white pad">
+
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <select id="itype" name="itype" class="form-control" style="width:250px">                                       
+                                    <optgroup label="Purchasing">
+                                        <option>Purchasing Order Issue</option>
+                                    </optgroup>
+                                    <optgroup label="Ranking">
+                                        <option>Ranking Request Issue</option>
+                                    </optgroup>
+                                    <optgroup label="Supplier">
+                                        <option>Password Issue</option>
+                                        <option>Mobile Number Issue</option>
+                                    </optgroup>
+                                    <optgroup label="Others">
+                                        <option>Return to Vendor</option>
+                                        <option>Statement of Account</option>
+                                        <option>Check Payment</option>
+                                    </optgroup>
+
+                                </select>
+                            </div>
+
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <input type="text" class="form-control" id="myInputTextField" placeholder="Ticket Title">
+                        </div>
+                    </div>
+
+                    <hr />
+                    <form>
+                        <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    </form>
+
+
+                    <hr />
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default">Submit Ticket</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+
+        <div class="box box-primary">
+
+            <div class="box-header with-border">
+
+                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                    <h4 class="label no-padding"> TICKET PROCESSING</h4>
+                </div>
+
+            </div>
+
+            <div class="box-body bg-white" style="padding-top: 35px; padding-left: 0px; padding-right: 0px">
+
+
+                <ul class="timeline timeline-inverse">
+
+                    <li>
+                        <i class="fa fa-level-down bg-purple"></i>
+
+                        <div class="timeline-item">
+                            <span class="time">1</span>
+
+                            <h5 class="timeline-header bg-white">
+                                <small href=""> OPEN TICKET </small>
+                            </h5>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-level-down bg-purple"></i>
+
+                        <div class="timeline-item">
+                            <span class="time">2</span>
+
+                            <h5 class="timeline-header bg-white">
+                                <small href=""> RESOLVED TICKET </small>
+                            </h5>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-level-down bg-purple"></i>
+
+                        <div class="timeline-item">
+                            <span class="time">3</span>
+
+                            <h5 class="timeline-header bg-white">
+                                <small href=""> CLOSED TICKET  </small>
+                            </h5>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-level-down bg-purple"></i>
+
+                        <div class="timeline-item">
+                            <span class="time">4</span>
+
+                            <h5 class="timeline-header bg-white">
+                                <small href=""> TICKET FEEDBACK </small>
+                            </h5>
+
+                            @*<div class="timeline-body bg-white">
+                                Activate supplier's account region in JDA.
+                            </div>*@
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-clock-o bg-gray"></i>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- bootstrap wysihtml5 - text editor -->
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<!-- Bootstrap WYSIHTML5 -->
+<script src="~/Scripts/Javascript/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+
+<script>
+    $(function () {
+        $(".textarea").wysihtml5();
+    });
+</script>
+
+
+
+@*<div class="row">
+        <div class="box box-solid">
+            <hr />
+        </div>
+    </div>
+
+    <div class="box box-solid">
+        <div class="box-body padding">
+            <!-- left column -->
+            <div class="col-md-6">
+                <h3>Write an Issue</h3>
+                <p>
+                    Note : Issues that are related only for Supplier Management Portal. <br />
+                    (PO, RANKING, RTV, PAYMENT, STATEMENT)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-controller="ComplainController">
+        <div class="col-md-12">
+
+            <div class="alert alert-danger alert-dismissable" ng-show="searchForm.requestFailure">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="icon fa fa-ban-circle"></i> Your request might already exist or you have requested all brand items to be rank.
+            </div>
+
+            <div class="box box-solid">
+
+                <div class="box-body padding">
+                    <!-- left column -->
+                    <form role="form" ng-submit="submitIssue()">
+
+                        <div class="col-md-6">
+                            <!-- general form elements -->
+                            <div class="box box-solid">
+
+                                <!-- form start -->
+                                <div class="box-body">
+
+                                    <hr />
+
+                                    <div class="form-group">
+                                        <label>Select Type : </label>
+                                        <div class="input-group input-group-sm">
+                                            <select id="itype" name="itype" required>
+                                                <option>Supplier Account</option>
+                                                <option>Purchasing Order</option>
+                                                <option>Ranking Request</option>
+                                                <option>Return to Vendor</option>
+                                                <option>Statement of Account</option>
+                                                <option>Check Payment</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Issue Name : </label>
+                                        <input class="form-control" type="text" ng-model="searchForm.iname">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Issue/Error Explanation : </label>
+                                        <textarea class="form-control" rows="4" cols="50" ng-model="searchForm.icomment" style="resize: none; text-transform: lowercase"></textarea>
+
+                                    </div>
+
+                                </div>
+                                <div class="box-footer">
+                                    <button type="button" class="btn btn-default" ng-click="resetIssue()">Reset</button>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                            </div><!-- /.box -->
+                        </div>
+
+                    </form>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+
+    <link href="~/Scripts/Javascript/plugins/select2/select2.min.css" rel="stylesheet" />*@
+

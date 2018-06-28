@@ -1,0 +1,168 @@
+﻿
+
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<style>
+    pre {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        border: none;
+        white-space: pre-wrap;
+        background-color: #f9fafc;
+    }
+
+    .clpre {
+        background-color: #f9fafc;
+        border: none;
+        border-left: 1px solid #d2d6de;
+    }
+
+
+    option:empty {
+        display: none;
+    }
+
+    .nNoo {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<div class="row" ng-controller="SearchController">
+
+
+    <div class="col-md-6">
+
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+
+                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                    <h4 class="label no-padding"> SEARCH SUPPLIER DETAILS </h4>
+                </div>
+            </div>
+
+            <div class="box-body bg-white">
+
+                <div class="col-md-12">
+                    <hr />
+
+                    <div class="form-group">
+                        <label>Supplier Id : </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control validate numeric sdd" id="sid" />
+                        </div>
+                    </div>
+                    
+                    <hr />
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default pr" ng-click="Search();">Search</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="box box-primary">
+
+            <div class="box-header with-border">
+
+                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                    <h4 class="label no-padding"> Supplier Activation Process  </h4>
+                </div>
+
+            </div>
+
+            <div class="box-body bg-white">
+
+                <div class="col-md-12">
+                    <hr />
+
+                    <ul class="timeline timeline-inverse">
+
+                        <li>
+                            <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                            <div class="timeline-item">
+                                <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                                <h3 class="timeline-header bg-white">
+                                    <span href=""> New Supplier </span>
+                                </h3>
+
+                                <div class="timeline-body bg-white">
+                                    Adding new supplier in Database
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                            <div class="timeline-item">
+                                <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                                <h3 class="timeline-header bg-white">
+                                    <span href=""> Create Region Account </span>
+                                </h3>
+
+                                <div class="timeline-body bg-white">
+                                    Creates supplier's region wise account for seperate account holder
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="fa fa-arrow-circle-o-right bg-blue"></i>
+
+                            <div class="timeline-item">
+                                <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                                <h3 class="timeline-header bg-white">
+                                    <span href=""> JDA Activation </span>
+                                </h3>
+
+                                <div class="timeline-body bg-white">
+                                    Activate supplier's account region in JDA.
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="fa fa-clock-o bg-gray"></i>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="~/Scripts/Modularize/System/iQtip.js"></script>
+<script src="~/Scripts/Modularize/System/iKeypress.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        iKeypress.init();
+        iQtip.init('sdd', 'Type the Supplier Id.');
+        iQtip.init('pr', 'Search Supplier Id');
+    });
+
+</script>
+

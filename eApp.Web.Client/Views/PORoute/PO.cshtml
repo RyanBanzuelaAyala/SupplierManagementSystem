@@ -1,0 +1,79 @@
+﻿
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<ul class="nav nav-tabs" style="background: none; color: #808080">
+
+    <style>
+        .arrange {
+            position: absolute !important;
+            margin-top: -23px !important;
+            margin-left: -20px !important;
+        }
+    </style>
+
+    <li class="active">
+        <a onclick="angular.element(document.getElementById('poc')).scope().LoadTable('Available');" data-toggle="tab" style="cursor: pointer">
+            <small class="label text-black bg-gray"> AVAILABLE </small>
+            @if (ViewBag.POA != 0)
+            {
+                <span class="badge bg-red arrange pull-left">@ViewBag.POA</span>
+            }
+        </a>
+    </li>
+    <li>
+        <a onclick="angular.element(document.getElementById('poc')).scope().LoadTable('Downloaded');" data-toggle="tab" style="cursor: pointer">
+            <small class="label text-black bg-gray"> DOWNLOADED </small>
+            @if (ViewBag.POD != 0)
+            {
+                <span class="badge bg-red arrange pull-left">@ViewBag.POD</span>
+            }
+        </a>
+    </li>
+    <li>
+        <a onclick="angular.element(document.getElementById('poc')).scope().LoadTable('Expired');" data-toggle="tab" style="cursor: pointer">
+            <small class="label text-black bg-gray"> ARCHIVED </small>
+            @if (ViewBag.POE != 0)
+            {
+                <span class="badge bg-red arrange pull-left">@ViewBag.POE</span>
+            }
+        </a>
+    </li>
+
+</ul>
+
+<div class="row" ng-controller="PoController" id="poc">
+
+    <div class="col-md-12">
+        <div class="box">
+
+            <div class="box-body" style="padding-left: 0px; padding-right: 0px;  font-size: 12px">
+                <div class="box-body">
+                    
+                    <table id="example" class="table table-bordered table-hover table-striped table-responsive" width="100%"></table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .select-info {
+        margin-left: 10px;
+    }
+
+    .selected {
+        background-color: #605ca8 !important;
+        color: #fff;
+    }
+</style>
+
+@Html.Partial("/Views/_Forms/_Datatable.cshtml")
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.select.min.js"></script>
+<link href="~/Scripts/Javascript/plugins/datatables/select.dataTables.min.css" rel="stylesheet" />

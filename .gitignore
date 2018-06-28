@@ -328,3 +328,27 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/eApp.Web.Admin/Content
+/eApp.Web.Admin/Migrations
+/eApp.Web.Admin/Scripts/i18n
+/eApp.Web.Admin/Scripts/Javascript/plugins
+/eApp.Web.Admin/Scripts/Javascript
+*.config
+/eApp.Web.Client/Content
+/eApp.Web.Client/CSV
+/eApp.Web.Client/Migrations
+/eApp.Web.Client/Properties
+/eApp.Web.Client/Scripts/i18n
+/eApp.Web.Client/Scripts/Javascript
+/eApp.Web.Client/SPData
+/eApp.Web.CP/Content
+/eApp.Web.CP/fonts
+/eApp.Web.CP/Properties
+/eApp.Web.CP/Scripts
+/eApp.Web.CP
+/eApp.Win.Mobile/Properties
+/eApp.Win.PO/Properties
+/eApp.Win.Rank/Properties
+/eApp.Win.RankPro/Properties
+/eDNB.Main/Properties
+/Core.Common/Authorization/Auth.cs

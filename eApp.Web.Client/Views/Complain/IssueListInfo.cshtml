@@ -1,0 +1,47 @@
+﻿
+@{
+    
+    foreach (var item in ViewBag.RequestQQ)
+    {
+        if (ViewBag.cUser == @item.agentid)
+        {
+            <div class="direct-chat-msg right">
+                <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-name pull-right">You</span>
+                    <span class="direct-chat-timestamp pull-left">@item.remarks</span>
+                </div><!-- /.direct-chat-info -->
+                <img class="direct-chat-img" src="/Content/img/user.png" alt="message user image"><!-- /.direct-chat-img -->
+                <div class="direct-chat-text">
+                    @item.reply
+                </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+
+        }
+        else
+        {
+            var nmee = "";
+
+            if(item.agentid == "devqqJED")
+            {
+                nmee = "Developer";
+            }
+            else
+            {
+                nmee = "Admin";
+            }
+
+            <div class="direct-chat-msg">
+                <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-name pull-left">@nmee</span>
+                    <span class="direct-chat-timestamp pull-right">@item.remarks</span>
+                </div><!-- /.direct-chat-info -->
+                <img class="direct-chat-img" src="/Content/img/user.png" alt="message user image"><!-- /.direct-chat-img -->
+                <div class="direct-chat-text">
+                    @item.reply
+                </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+            
+        }
+    }
+
+}

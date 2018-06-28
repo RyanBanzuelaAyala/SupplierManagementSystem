@@ -1,0 +1,112 @@
+﻿
+
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<div class="box box-solid">
+    <div class="box-body padding">
+        <!-- left column -->
+        <div class="col-md-6">
+            <h3>AVAILABLE - PURCHASING ORDER</h3>
+            <p>List of available and updated P.O</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" ng-controller="PoController">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-solid">
+
+            <div class="box-body table-responsive padding">
+
+                <div class="box-body">
+
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    User Id
+                                </th>
+                                <th>
+                                    Role
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Password
+                                </th>
+                                <th>
+                                    Option
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="poes">
+                            @if(ViewBag.RequestQQ != null)
+                            {
+                                foreach(var req in ViewBag.RequestQQ)
+                                {
+                                    <tr>
+                                        <td>
+                                            @req.userid                                            
+                                        </td>
+                                        <td>
+                                            @req.role
+                                        </td>
+                                        <td class="colorgreen">
+                                           @req.status
+                                        </td>
+                                        <td class="colorgreen">
+                                            @req.password
+                                        </td>
+                                        <td>
+                                            @if(req.status == "activated")
+                                            {
+                                                <a href="/ag/status/@req.userid/deactivated" target="_blank" class="btn btn-default btn-xs"><i class="fa fa-thumbs-down"></i></a>
+                                            }
+                                            else
+                                            {
+                                                <a href="/ag/status/@req.userid/activated" target="_blank" class="btn btn-default btn-xs"><i class="fa fa-thumbs-up"></i></a>
+                                            }                                            
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div><!-- /.box-body -->
+        </div>
+
+    </div><!-- /.col -->
+
+
+    <div class="col-xs-12">
+
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- iCheck -->
+<link href="~/Scripts/Javascript/plugins/iCheck/square/purple.css" rel="stylesheet" />
+<!-- iCheck -->
+<!-- DataTables -->
+<script src="~/Scripts/Javascript/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.css">
+
+<!-- page script -->
+<script>
+    $(function () {
+        $('#example2').DataTable({
+            "paging": true,
+        });
+    });
+</script>

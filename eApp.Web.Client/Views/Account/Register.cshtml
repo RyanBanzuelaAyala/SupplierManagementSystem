@@ -1,0 +1,95 @@
+﻿
+<!DOCTYPE html>
+<html ng-app="Login" ng-controller="LoginController">
+
+@Html.Partial("_header")
+
+<body class="hold-transition login-page" style="background-image: url('../../Content/img/danube.jpg'); background-size: cover">
+
+    <style>
+        .login-box-body, .register-box-body {
+            background: none;
+        }
+
+        option:empty {
+            display: none;
+        }
+
+        .clrHR {
+            opacity: 0.3;
+            filter: alpha(opacity=50); /* For IE8 and earlier */
+        }
+
+        .clor {
+            color: #fff;
+        }
+
+        .brd {
+            /*border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;*/
+            box-shadow: 5px 5px 50px #ddd;
+        }
+
+        .xloader {
+            height: 16px;
+            width: 16px;
+            margin-top: 3px;
+        }
+    </style>
+
+    <div class="login-box">
+
+        <div class="login-box-body">
+            
+            <hr class="clrHR" style="margin-top: 50px" />
+
+            <div class="form-group has-feedback">
+                <label class="clor">Mobile No. : </label>
+                <input type="text" class="form-control brd validate number mobile" id="mobile" placeholder="056xxxxxxx" autocomplete="off">
+                <span class="fa fa-lock form-control-feedback"></span>
+            </div>
+
+            <hr class="clrHR" />
+
+            <div class="form-group has-feedback text-center">
+                <button type="submit" class="btn btn-default brd ujk" ng-click="Register()"> Submit <i class="fa fa-edit"></i> </button>
+
+            </div>
+
+            <hr class="clrHR" />
+
+            <div class="text-center">
+
+                <label class="clor text-red"> Note : </label>
+
+                <label class="clor text-red">- By Registering the mobile number, you will be able to recieve the alerts about New PO(s) and Ranking Requests</label>
+
+                <label class="clor text-red">- Your above given mobile number will be registered in our system automatically.</label>
+
+                <label class="clor text-red">- Please be carefull as this is only a one time registration of your mobile number from here.</label>
+
+                <label class="clor text-red">- If there will be any changes in your mobile number in future, you can change it either through your profile settings or by contact to the Danube Head Office.</label>
+
+            </div>
+
+            <hr class="clrHR" />
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+    @Html.Partial("_footer")
+
+
+    @Scripts.Render("~/bundles/Login")
+
+
+</body>
+</html>

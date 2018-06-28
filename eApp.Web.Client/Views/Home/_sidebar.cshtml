@@ -1,0 +1,188 @@
+﻿
+<style>
+    .labelX {
+        margin-right: 20px !important;
+        margin-top: -8px !important;
+    }
+
+    .labelR {
+        margin-right: -12px !important;
+    }
+
+    .badge {
+        font-size: 75% !important;
+        border-top-left-radius: 70px !important;
+        border-bottom-left-radius: 70px !important;
+        border-top-right-radius: 70px !important;
+        border-bottom-right-radius: 0px !important;
+        padding: 3px 7px !important;
+        margin-top: -15px !important;
+    }
+</style>
+
+<!-- Left side column. contains te logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <div class="box box-widget widget-user-2" style="border-radius: 0px">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-purple image">
+                <div class="widget-user-image">
+                    <img src="~/Content/img/user.png" class="img-circle" alt="User Image">
+                </div><!-- /.widget-user-image -->
+                <h3 class="widget-user-username" style="font-size: 12px; padding-top: 10px">@ViewBag.CurrentUser.UserName</h3>
+                <h5 class="widget-user-desc">
+                    @if (ViewBag.CurrentUser.Region == "JED")
+                    {
+                        <span>JEDDAH</span>
+                    }
+                    else if (ViewBag.CurrentUser.Region == "RYD")
+                    {
+                        <span>RIYADH</span>
+                    }
+                    else if (ViewBag.CurrentUser.Region == "KHB")
+                    {
+                        <span>KHOBAR</span>
+                    }
+                    else if (ViewBag.CurrentUser.Region == "SOU")
+                    {
+                        <span>SOUTH</span>
+                    }
+
+                </h5>
+            </div>
+            <div class="box-footer no-padding">
+                <ul class="sidebar-menu">
+
+                    <li class="header">
+                        <small class="label pull-left bg-purple">Supplier Tools</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="/dashboard">
+                            <i class="fa fa-dashboard"></i><span>Dashboard </span><span class="heart pull-right"></span><span class="point pull-right"></span>
+                        </a>
+                    </li>
+
+                    @*<li class="treeview">
+                        <a href="/stats/summary">
+                            <i class="fa fa-bar-chart"></i><span>Statistics </span><span class="heart pull-right"></span><span class="point pull-right"></span>
+                        </a>
+                    </li>*@
+
+                    <li class="header">
+                        <small class="label pull-left bg-purple">P.O ITEMS</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="/p/po">
+                            <i class="fa fa-file-text"></i><span>Purchasing Orders </span><span class="heart pull-right"></span><span class="point pull-right"></span>
+                        </a>
+                    </li>
+
+                    <li class="header">
+                        <small class="label pull-left bg-purple">RANKING ITEMS</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="rk/create">
+                            <i class="fa fa-pencil"></i><span> Create Request </span><span class="heart pull-right"></span><span class="point pull-right"></span>
+                        </a>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="rk/requestlist">
+                            <i class="fa fa-tasks"></i><span> List of Ranking </span><span class="heart pull-right"></span><span class="point pull-right"></span>
+                        </a>
+                    </li>
+
+                    <li class="header">
+                        <small class="label pull-left bg-purple">RETURN TO VENDOR</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="">
+                            <i class="fa fa-copy"></i><span>RTV Items</span>
+                            @*@if(ViewBag.RVA == 0)
+                {
+                    <i class="fa fa-angle-left pull-right"></i>
+                }
+                else
+                {
+                    <small class="label pull-right bg-red">@ViewBag.RVA</small>
+                }*@
+                        </a>
+                        @*<ul class="treeview-menu">
+                <li>
+                    <a href="/r/available">
+                        <i class="fa fa-list"></i> RTV List
+                        @if(ViewBag.RVA != 0)
+                        {
+                            <small class="label pull-right bg-green">@ViewBag.RVA</small>
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="/r/downloaded">
+                        <i class="fa fa-cloud-download"></i> Downloaded List
+                        @if(ViewBag.RVD != 0)
+                        {
+                            <small class="label pull-right bg-orange">@ViewBag.RVD</small>
+                        }
+                    </a>
+                </li>
+            </ul>*@
+                    </li>
+
+                    <li class="header">
+                        <small class="label pull-left bg-purple">INVOICE PAYMENT</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="">
+                            <i class="fa fa-pencil"></i><span>Payment Request</span>
+                        </a>
+                        @*<ul class="treeview-menu">
+
+                <li>
+                    <a href="/py/paymentrequest"><i class="fa fa-certificate"></i> <span>Invoice Request</span></a>
+                </li>
+                <li>
+                    <a href="/py/paymentrequest"><i class="fa fa-list"></i> <span>Payment Status</span></a>
+                </li>
+            </ul>*@
+                    </li>
+
+                    <li class="treeview">
+                        <a href="">
+                            <i class="fa fa-photo"></i><span>Statement Request</span>
+                        </a>
+                        @*<ul class="treeview-menu">
+                <li>
+                    <a href="/st/paymentrequest"><i class="fa fa-upload"></i> <span>Upload Statement</span></a>
+                </li>
+                <li>
+                    <a href="/st/paymentrequest"><i class="fa fa-link"></i> <span>List of Statement</span></a>
+                </li>
+            </ul>*@
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <style>
+            .nNooX {
+                margin-top: 2px;
+                margin-bottom: 2px;
+                border-top: none;
+                padding: 1px;
+            }
+        </style>
+
+
+    </section>
+    <!-- /.sidebar -->
+</aside>
+

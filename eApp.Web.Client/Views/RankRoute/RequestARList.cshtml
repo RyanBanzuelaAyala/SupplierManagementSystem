@@ -1,0 +1,72 @@
+﻿
+<div class="row" ng-controller="RankListController" id="rlc">
+    <div class="col-md-12">
+        <div class="box">
+
+            <div class="box-body" style="padding-left: 0px; padding-right: 0px; font-size: 11px ">
+                <div class="box-body">
+
+                    <div class="form-group">
+
+                        <div class="box collapsed-box" style="padding-top: 10px">
+
+                            <div class="box-header" style="background-color: #f9fafc; padding-bottom: 20px;">
+                                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                                    <h4 class="label no-padding"> ARCHIVE - RANKING ORDER</h4>
+                                </div>
+                                <div class="box-tools pull-left" style="margin-top: 10px;">
+
+                                    <input type="hidden" id="sstatus" value="Expired" />
+
+                                    <button class="btn btn-box-tool btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>
+
+                                    <a href="/cp/issue" class="btn btn-box-tool btn-sm" data-toggle="tooltip" title="Create Ticket"><i class="fa fa-question"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="box-body bg-white" style="display: none; padding: 0px">
+
+                                <div class="input-group" style="padding-top: 20px">
+
+                                    <span class="input-group-addon no-border no-padding">
+                                        <small class="text-black bg-gray label pull-left">File Type</small>
+                                        <select class="form-control" id="x1"></select>
+                                    </span>
+                                    <span class="input-group-addon no-border no-padding">
+                                        <small class="text-black bg-gray label pull-left">Date Released</small>
+                                        <select class="form-control" id="x2"></select>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr />
+
+                    <table id="example" class="table table-bordered table-hover table-striped" width="100%">
+                        
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .select-info {
+        margin-left: 10px;
+    }
+
+    .selected {
+        background-color: #605ca8 !important;
+        color: #fff;
+    }
+</style>
+
+@Html.Partial("/Views/_Forms/_Datatable.cshtml")
+

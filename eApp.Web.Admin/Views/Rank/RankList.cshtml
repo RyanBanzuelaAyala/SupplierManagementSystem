@@ -1,0 +1,115 @@
+﻿
+
+
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<div class="box box-solid">
+    <div class="box-body padding">
+        <!-- left column -->
+        <div class="col-md-6">
+            <h3>REQUEST ID : <b> @ViewBag.Info </b></h3>
+            <p>below all the information of this ranking request.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-solid">
+
+            <div class="box-body table-responsive padding">
+
+                <div class="box-body">
+
+                    <table id="example2" class="table table-bordered table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>
+                                    Request Id
+                                </th>
+                                <th>
+                                    Request Type
+                                </th>
+                                <th>
+                                    Date Requested
+                                </th>                               
+                            </tr>
+                        </thead>
+
+                        <tbody class="poes">
+                            @foreach(var user in ViewBag.Ranks)
+                            {
+                                <tr>
+                                    <td>
+                                        @user.reqid <br />
+                                        Status :
+                                        @if(user.sts == "process")
+                                        {
+                                            <small class="label bg-red">@user.sts</small>
+                                        }
+                                        else if(user.sts == "processing")
+                                        {
+                                            <small class="label bg-maroon">@user.sts</small>
+                                        }
+                                        else if(user.sts == "processed")
+                                        {
+                                            <small class="label bg-green">@user.sts</small>
+                                        }
+                                        else
+                                        {
+                                            <small class="label bg-red">@user.sts</small>
+                                        }
+                                    </td>
+                                    <td>
+                                        @user.rtype
+                                    </td>
+                                    <td>
+                                        @user.dreq <br />
+                                        <small class="label bg-orange">Exp : @user.exprtn</small>
+                                    </td>
+                                    
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div><!-- /.box-body -->
+        </div>
+
+    </div><!-- /.col -->
+
+
+    <div class="col-xs-12">
+
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- iCheck -->
+<link href="~/Scripts/Javascript/plugins/iCheck/square/purple.css" rel="stylesheet" />
+<!-- iCheck -->
+<script src="~/Scripts/Javascript/plugins/iCheck/icheck.min.js"></script>
+<!-- DataTables -->
+<script src="~/Scripts/Javascript/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.css">
+
+<!-- page script -->
+<script>
+    $(function () {
+        $('#example2').DataTable({
+            "paging": true,
+        });
+
+    });
+</script>
+
+

@@ -1,0 +1,236 @@
+﻿
+
+
+
+<style>
+    pre {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        border: none;
+        white-space: pre-wrap;
+        background-color: #f9fafc;
+    }
+
+    .clpre {
+        background-color: #f9fafc;
+        border: none;
+        border-left: 1px solid #d2d6de;
+    }
+
+
+    option:empty {
+        display: none;
+    }
+
+    .nNoo {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
+
+
+<div class="row" ng-controller="SupplierController" id="ssup">
+
+
+    <div class="col-md-8">
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                    <h4 class="label no-padding"> Supplier Information </h4>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box box-primary">
+
+            <hr />
+
+            <div class="box-body bg-white">
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label>Supplier Id : </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-dot-circle-o"></i></span>
+                            <input type="email" class="form-control validate" placeholder="ex. 33xxxx" id="idd">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-6">
+
+
+                    <div class="form-group">
+                        <label>Supplier Name : </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa  fa-dot-circle-o"></i></span>
+                            <input type="email" class="form-control validate" placeholder="ex. Supplier Name" id="name">
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="box box-primary">
+
+            <hr />
+
+            <div class="box-body bg-white">
+
+                <div class="col-md-6">
+
+
+                    <div class="form-group">
+                        <label><small class="">*</small>Account Region : </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <select class="form-control validate brd" style="width: 100%" id="region">
+                                <optgroup label="Region">
+                                    <option>JED</option>
+                                    <option>KHB</option>
+                                    <option>RYD</option>
+                                </optgroup>
+                                <optgroup label="Bakery">
+                                    <option>BKJ</option>
+                                    <option>BKR</option>
+                                    <option>BKK</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr />
+                    
+                    <div class="form-group">
+                        <label>Mobile : </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa  fa-dot-circle-o"></i></span>
+                            <input type="email" class="form-control" placeholder="ex. 055100xxxxxx" id="mobile">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-6">
+
+
+                    <div class="form-group">
+                        <label><small class="">*</small>Password : (12345678) default password</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa  fa-dot-circle-o"></i></span>
+                            <input type="email" class="form-control validate" placeholder="ex. xXXxxxx" value="12345678" id="password">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="box box-primary">
+
+            <hr />
+
+            <div class="box-body">
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+
+                        <button type="button" class="btn btn-default" onclick="angular.element(document.getElementById('ssup')).scope().Process();">Save Supplier Information</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <div class="form-group box-title bg-purple" style="padding: 10px 20px 10px 10px; margin-top: -130px; margin-left: -10px; border-bottom-right-radius: 30px">
+                    <h4 class="label no-padding"> Product Image </h4>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box box-primary">
+
+            <hr />
+
+            <ul class="timeline timeline-inverse">
+
+                <li>
+                    <i class="fa bg-blue">1</i>
+
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                        <h3 class="timeline-header bg-white">
+                            <span href=""> New Supplier </span>
+                        </h3>
+
+                        <div class="timeline-body bg-white">
+                            Adding new supplier in Database
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <i class="fa bg-blue">2</i>
+
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                        <h3 class="timeline-header bg-white">
+                            <span href=""> Create Region Account </span>
+                        </h3>
+
+                        <div class="timeline-body bg-white">
+                            Creates supplier's region wise account for seperate account holder
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <i class="fa bg-blue">3</i>
+
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-odnoklassniki"></i></span>
+
+                        <h3 class="timeline-header bg-white">
+                            <span href=""> JDA Activation </span>
+                        </h3>
+
+                        <div class="timeline-body bg-white">
+                            Activate supplier's account region in JDA.
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+            <hr />
+        </div>
+
+    </div>
+
+</div>
+

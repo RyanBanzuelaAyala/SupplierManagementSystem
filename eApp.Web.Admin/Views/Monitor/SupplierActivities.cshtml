@@ -1,0 +1,101 @@
+﻿
+
+
+
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<div class="box box-solid">
+    <div class="box-body padding">
+        <!-- left column -->
+        <div class="col-md-6">
+            <h3>Date of Monitoring : <b> @ViewBag.cdate </b></h3>
+            <p>below all the list of unique supplier(s).</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-solid">
+
+            <div class="box-body table-responsive padding">
+
+                <div class="box-body">
+
+
+                    <table id="example2" class="table table-bordered table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>
+                                    Supplier Id
+                                </th>
+                                <th>
+                                    Region
+                                </th>                                
+                                <th>
+                                    Date Log
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="poes">
+                            @if(ViewBag.RequestQQ != null)
+                            {
+                                foreach(var req in ViewBag.RequestQQ)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a href="/monitor/activityinfo/@req.userid/@ViewBag.cdate">@req.sid</a>
+                                        </td>
+                                        <td>
+                                            @req.region
+                                        </td>                                       
+                                        <td>
+                                            @req.date
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div><!-- /.box-body -->
+        </div>
+
+    </div><!-- /.col -->
+
+
+    <div class="col-xs-12">
+
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- iCheck -->
+<link href="~/Scripts/Javascript/plugins/iCheck/square/purple.css" rel="stylesheet" />
+<!-- iCheck -->
+<script src="~/Scripts/Javascript/plugins/iCheck/icheck.min.js"></script>
+<!-- DataTables -->
+<script src="~/Scripts/Javascript/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.css">
+
+<!-- page script -->
+<script>
+    $(function () {
+        $('#example2').DataTable({
+            "paging": true,
+        });
+
+    });
+</script>
+
+

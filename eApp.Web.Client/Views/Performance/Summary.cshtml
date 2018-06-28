@@ -1,0 +1,156 @@
+﻿
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="form-group">
+            <div class="input-group">
+
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" class="form-control" id="ixDate" name="ixDate" style="height: 39px" placeholder="Select date range for service level report" readonly autocomplete="off" required>
+                <div class="input-group-addon">
+                    <button type="button" class="btn btn-default btn-xs" onclick="angular.element(document.getElementById('poc')).scope().filter();">Submit</button>
+                    <input type="hidden" id="cdate" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<ul class="nav nav-tabs" style="background: none; color: #808080">
+
+    <style>
+        .arrange {
+            position: absolute !important;
+            margin-top: -29px !important;
+            margin-left: -20px !important;
+        }
+    </style>
+
+
+
+    <li class="active">
+        <a data-toggle="tab" style="cursor: pointer">
+            <small class="label text-black bg-gray"> Service Level Summary Report </small>
+        </a>
+    </li>
+
+</ul>
+
+<div class="row" ng-controller="PerformanceController" id="poc">
+
+    <div class="col-md-12">
+        <div class="box">
+
+            <div class="box-body" style="padding-left: 0px; padding-right: 0px;  font-size: 11px">
+
+                <div class="box-body">
+
+                    <table id="example" class="table table-bordered table-hover table-striped table-responsive" width="100%"></table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .select-info {
+        margin-left: 10px;
+    }
+
+    .selected {
+        background-color: #605ca8 !important;
+        color: #fff;
+    }
+</style>
+
+@Html.Partial("/Views/_Forms/_Datatable.cshtml")
+
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.select.min.js"></script>
+<link href="~/Scripts/Javascript/plugins/datatables/select.dataTables.min.css" rel="stylesheet" />
+
+
+<link href="~/Scripts/Javascript/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+<script src="~/Scripts/Javascript/plugins/datepicker/bootstrap-datepicker.js"></script>
+
+<!-- daterange picker -->
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/daterangepicker/daterangepicker-bs3.css">
+
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/daterangepicker/daterangepicker.js"></script>
+
+
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.responsive.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.rowReorder.min.js"></script>
+
+<link href="~/Scripts/Javascript/plugins/datatables/responsive.dataTables.min.css" rel="stylesheet" />
+<link href="~/Scripts/Javascript/plugins/datatables/rowReorder.dataTables.min.css" rel="stylesheet" />
+
+<script src="~/Scripts/Javascript/plugins/datatables/export/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/export/jszip.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/export/pdfmake.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/export/vfs_fonts.js"></script>
+
+<script src="~/Scripts/Javascript/plugins/datatables/export/buttons.html5.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/export/buttons.print.min.js"></script>
+
+<link href="~/Scripts/Javascript/plugins/datatables/export/buttons.dataTables.min.css" rel="stylesheet" />
+
+<script>
+
+    $(function () {
+
+
+        $('#xDate').datepicker().on('changeDate', function () {
+            $(this).datepicker('hide');
+        });
+
+        $('#ixDate').daterangepicker();
+
+        $.notify({
+            message: 'NOTICE: <br /><br /> 1. Any regular orders which are supplied after the lapse of 7 days will be subject to penalty of <strong>SR 15,000</strong> per order. <br /><br /> 2. Any Promotional order not supplied before one day of the promotion will be subject to a penalty of <strong>SR 30,000</strong> per order.',
+        }, {
+                type: 'warning',
+                placement: {
+                    from: 'top',
+                    align: 'right'
+                },
+                offset: {
+                    x: 10,
+                    y: 10
+                },
+                animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+                },
+                delay: 10000,
+                template: '<div data-notify="container" style="z-index: 9999999999" class="col-xs-4 col-sm-4 alert alert-{0}" role="alert">' +
+                '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                '<span data-notify="icon"></span> ' +
+                '<span data-notify="title">{1}</span> ' +
+                '<span data-notify="message">{2}</span>' +
+                '<div class="progress" data-notify="progressbar">' +
+                '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                '</div>' +
+                '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                '</div>'
+            });
+
+    });
+
+
+</script>

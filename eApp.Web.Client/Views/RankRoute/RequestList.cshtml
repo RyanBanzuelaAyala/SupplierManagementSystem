@@ -1,0 +1,108 @@
+﻿
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<ul class="nav nav-tabs" style="background: none; color: #808080">
+
+    <style>
+        .arrange {
+            position: absolute !important;
+            margin-top: -29px !important;
+            margin-left: -20px !important;
+        }
+    </style>
+
+    <li class="active">
+        <a onclick="angular.element(document.getElementById('rlc')).scope().LoadTable('Requested');" data-toggle="tab" style="cursor: pointer">
+            <small class="label text-black bg-gray"> REQUESTED </small>
+            @if (ViewBag.RKA != 0)
+            {
+                <span class="badge bg-red arrange pull-left">@ViewBag.RKA</span>
+            }
+        </a>
+    </li>
+    <li>
+        <a onclick="angular.element(document.getElementById('rlc')).scope().LoadTable('Downloaded');" data-toggle="tab" style="cursor: pointer">
+            <small class="label text-black bg-gray"> DOWNLOADED </small>
+            @if (ViewBag.RKD != 0)
+            {
+                <span class="badge bg-red arrange pull-left">@ViewBag.RKD</span>
+            }
+        </a>
+    </li>
+    <li>
+        <a onclick="angular.element(document.getElementById('rlc')).scope().LoadTable('Expired');" data-toggle="tab" style="cursor: pointer">
+            <small class="label text-black bg-gray"> ARCHIVED </small>
+            @if (ViewBag.RKR != 0)
+            {
+                <span class="badge bg-red arrange pull-left">@ViewBag.RKR</span>
+            }
+        </a>
+    </li>
+
+</ul>
+
+
+<div class="row" ng-controller="RankListController" id="rlc">
+    <div class="col-md-12">
+        <div class="box">
+
+            <div class="box-body" style="padding-left: 0px; padding-right: 0px; font-size: 11px">
+                <div class="box-body">
+                    
+                    <table id="example" class="table table-bordered table-hover table-striped" width="100%"></table>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .select-info {
+        margin-left: 10px;
+    }
+
+    .selected {
+        background-color: #605ca8 !important;
+        color: #fff;
+    }
+</style>
+
+@Html.Partial("/Views/_Forms/_Datatable.cshtml")
+
+@*<link href="~/Scripts/Javascript/plugins/datatables/chkbox/dataTables.checkboxes.css" rel="stylesheet" />
+    <script src="~/Scripts/Javascript/plugins/datatables/chkbox/dataTables.checkboxes.js"></script>
+    <script src="~/Scripts/Javascript/plugins/datatables/chkbox/dataTables.checkboxes.min.js"></script>*@
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.select.min.js"></script>
+
+@*<script src="~/Scripts/Modularize/PO/iPOD.js"></script>*@
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.vc').qtip({ // Grab some elements to apply the tooltip to
+            content: {
+                text: 'Download Ranking Request PDF File..'
+            },
+            style: {
+                classes: 'qtip-light qtip-shadow'
+            },
+            position: {
+                my: 'top right',  // Position my top left...
+                at: 'bottom right', // at the bottom right of...
+            }
+        })
+
+        //iPOD.init();
+    });
+</script>
+

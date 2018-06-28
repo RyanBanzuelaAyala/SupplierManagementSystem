@@ -1,0 +1,178 @@
+﻿
+<style>
+    .labelX {
+        margin-right: 20px !important;
+        margin-top: -8px !important;
+    }
+
+    .labelR {
+        margin-right: -12px !important;
+    }
+
+    .badge {
+        font-size: 75% !important;
+        border-top-left-radius: 70px !important;
+        border-bottom-left-radius: 70px !important;
+        border-top-right-radius: 70px !important;
+        border-bottom-right-radius: 0px !important;
+        padding: 3px 7px !important;
+        margin-top: -15px !important;
+    }
+</style>
+
+<!-- Left side column. contains te logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <div class="box box-widget widget-user-2" style="border-radius: 0px">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-purple image">
+                <div class="widget-user-image">
+                    <img src="~/Content/img/user.png" class="img-circle" alt="User Image">
+                </div><!-- /.widget-user-image -->
+                <h3 class="widget-user-username" style="font-size: 12px; padding-top: 10px">@ViewBag.User.UserName</h3>
+                <h5 class="widget-user-desc">@ViewBag.User.Region</h5>
+            </div>
+            <div class="box-footer no-padding">
+                <ul class="sidebar-menu">
+
+                    @*<li class="header">
+                        <small class="label pull-left bg-purple">Admin Tools</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="/dashboard">
+                            <i class="fa fa-dashboard"></i><span>Dashboard </span><span class="heart pull-right"></span><span class="point pull-right"></span>
+                        </a>
+                    </li>*@
+
+                    <li class="header">
+                        <small class="label pull-left bg-purple">SUPPLIER MODIFICATION</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="/supplier/list">
+                            <i class="fa fa-users"></i><span>Supplier List </span><span class="heart pull-right"></span><span class="point pull-right"></span>
+                        </a>
+                    </li>
+
+                    @*<li class="header">
+                        <small class="label pull-left bg-purple">SUPPLIER TICKET</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="">
+                            <i class="fa fa-question-circle text-red"></i><span>TICKET Information</span>
+                            @if (ViewBag.Com == 0)
+                            {
+                                <i class="fa fa-angle-left pull-right"></i>
+                            }
+                            else
+                            {
+                                <span class="heart pull-right"></span><span class="point pull-right"></span>
+                            }
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li>
+                                <hr class="nNooX" />
+                                <a href="/cp/complainlist">
+                                    <i class="fa fa-minus"></i> Ticket List
+                                    <small class="badge bg-green labelX pull-right">1</small>
+                                    <span class="fa fa-hdd-o pull-right"></span>
+                                </a>
+                                <hr class="nNooX" />
+                            </li>
+                            <li>
+                                <a href="/cp/complainlistsolved">
+                                    <i class="fa fa-minus"></i> Ticket [ PENDING ]
+                                    <small class="badge bg-green labelX pull-right">1</small>
+                                    <span class="fa fa-hdd-o pull-right"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="nNooX" />
+                                <a href="/cp/complainlistsolved">
+                                    <i class="fa fa-minus"></i> Ticket [ SOLVED ]
+                                    <small class="badge bg-green labelX pull-right">1</small>
+                                    <span class="fa fa-hdd-o pull-right"></span>
+                                </a>
+                                <hr class="nNooX" />
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="header">
+                        <small class="label pull-left bg-purple">DATA TRANSACTION</small>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="">
+                            <i class="fa fa-file text-red"></i><span>Purchasing Order</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <hr class="nNooX" />
+                            </li>
+                            <li>
+                                <a href="/po"><i class="fa fa-file-text-o text-red"></i><span>Check P.O</span></a>
+                            </li>
+                            <li>
+                                <hr class="nNooX" />
+                            </li>
+                            <li>
+                                <a href="/report/supplier"><i class="fa fa-print text-red"></i><span>P.O Reporting</span></a>
+                            </li>
+                            <li>
+                                <hr class="nNooX" />
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="">
+                            <i class="fa fa-list-alt text-red"></i><span>Ranking Request</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <hr class="nNooX" />
+                            </li>
+                            <li>
+                                <a href="/rk"><i class="fa fa-clipboard text-red"></i><span>Check Ranking</span></a>
+                            </li>
+                            <li>
+                                <hr class="nNooX" />
+                            </li>
+                            <li>
+                                <a href="/rk/rank/processing"><i class="fa fa-outdent text-red"></i><span>Ranking On-Processing</span></a>
+                            </li>
+                            <li>
+                                <hr class="nNooX" />
+                            </li>
+                        </ul>
+
+                
+                        </ul>*@
+            </div>
+        </div><!-- /.widget-user -->
+
+        <style>
+            .nNooX {
+                margin-top: 5px;
+                margin-bottom: 5px;
+                border-top: none;
+                padding: 1px;
+            }
+        </style>
+
+
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+
+

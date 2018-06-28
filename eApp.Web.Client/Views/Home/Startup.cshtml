@@ -1,0 +1,399 @@
+﻿
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<style>
+    #example_filter {
+        display: none;
+    }
+
+    div.slider {
+        display: none;
+    }
+
+    pre {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        border: none;
+        white-space: pre-wrap;
+        background-color: #fff;
+    }
+
+    option:empty {
+        display: none;
+    }
+
+    .nNoo {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .cap {
+        text-transform: uppercase;
+    }
+
+    .labelXY {
+        margin-right: 10px !important;
+        margin-top: -8px !important;
+    }
+
+    .badge {
+        font-size: 75% !important;
+        border-top-left-radius: 70px !important;
+        border-bottom-left-radius: 70px !important;
+        border-top-right-radius: 70px !important;
+        border-bottom-right-radius: 0px !important;
+        padding: 3px 7px !important;
+        margin-top: -15px !important;
+    }
+
+    .fc-time {
+        display: none
+    }
+
+    .fc-content {
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="row">
+
+    <div class="col-md-9">
+        <div class="box box-primary">
+           
+            <div class="box-body no-padding">
+                <!-- THE CALENDAR -->
+                <div id="calendar">
+                    <span style="padding: 20px; margin: 20px; height: 100px; width:100%; text-align:center; position: absolute" id="lodd">Data Loading...</span>
+                </div>
+            </div><!-- /.box-body -->
+        </div><!-- /. box -->
+    </div><!-- /.col -->
+
+    <div class="col-md-3">
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h4 class="box-title">PO Monthly Statistics</h4>
+            </div>
+            <div class="box-body no-padding chart-responsive">
+                <div class="chart" id="sales-chart" style="height: 150px; position: relative;"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /. box -->
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h4 class="box-title">Rank Monthly Statistics</h4>
+            </div>
+            <div class="box-body no-padding chart-responsive">
+                <div class="chart" id="rank-chart" style="height: 150px; position: relative;"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /. box -->
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Legend</h3>
+            </div>
+            <div class="box-body bg-white" style="padding-left: 0px; padding-right: 0px;">
+
+                <div class="col-xs-6">
+
+                    <table class="table table-bordered table-hover table-striped" width="100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    PO
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="poes">
+                            <tr>
+                                <td class="bg-gray">
+                                    Archived
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-red">
+                                    Downloaded
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-green">
+                                    Available
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-xs-6">
+
+                    <table class="table table-bordered table-hover table-striped" width="100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    RANKING
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="poes">
+                            <tr>
+                                <td style="background-color: pink">
+                                    Archived
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-blue">
+                                    Downloaded
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-orange">
+                                    Processed
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<!-- Morris charts -->
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/morris/morris.css">
+<!-- Morris.js charts -->
+<script src="~/Scripts/Javascript/plugins/morris/raphael.js"></script>
+<script src="~/Scripts/Javascript/plugins/morris/morris.min.js"></script>
+
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/fullcalendar/fullcalendar.min.css">
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/fullcalendar/fullcalendar.print.css" media="print">
+
+<script src="~/Scripts/Javascript/plugins/fullcalendar/moment.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/fullcalendar/fullcalendar.min.js"></script>
+@*<script src="~/Scripts/Javascript/plugins/fullcalendar/locale-all.js"></script>*@
+
+<script>
+
+    $(function () {
+
+
+        //$.notify({
+        //    message: 'NOTICE: <br /><br /> 1. Any regular orders which are supplied after the lapse of 7 days will be subject to penalty of <strong>SR 15,000</strong> per order. <br /><br /> 2. Any Promotional order not supplied before one day of the promotion will be subject to a penalty of <strong>SR 30,000</strong> per order.',
+        //}, {
+        //    type: 'warning',
+        //    placement: {
+        //        from: 'top',
+        //        align: 'right'
+        //    },
+        //    offset: {
+        //        x: 10,
+        //        y: 10
+        //    },
+        //    animate: {
+        //        enter: 'animated fadeInDown',
+        //        exit: 'animated fadeOutUp'
+        //    },
+        //    template: '<div data-notify="container" style="z-index: 9999999999" class="col-xs-4 col-sm-4 alert alert-{0}" role="alert">' +
+        //    '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+        //    '<span data-notify="icon"></span> ' +
+        //    '<span data-notify="title">{1}</span> ' +
+        //    '<span data-notify="message">{2}</span>' +
+        //    '<div class="progress" data-notify="progressbar">' +
+        //    '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+        //    '</div>' +
+        //    '<a href="{3}" target="{4}" data-notify="url"></a>' +
+        //    '</div>'
+        //});
+
+        
+        var events = [];
+
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetEvents",
+            success: function (data) {
+
+                $.each(data, function (i, v) {
+                    events.push({
+                        title: v.title,
+                        description: v.desc,
+                        start: moment(v.start),
+                        end: v.end != null ? moment(v.end) : null,
+                        color: v.color,
+                        allDay: v.allDay,
+                        link: v.link,
+                        status: v.status
+                    });
+                })
+
+                GenerateCalender(events);
+            },
+            error: function (error) {
+                alert('failed');
+            }
+        })
+
+        function GenerateCalender(events) {
+
+            $('#calendar').fullCalendar({
+                viewRender: function (view, element) {
+
+                    var b = $('#calendar').fullCalendar('getDate');                                                            
+                    var cdate = b.format('YYYY') + '-' + b.format('MM');
+
+                    console.log(cdate);
+
+                    //Statistic(cdate);
+                    
+                    var monthEvents = [];
+
+                    $('#calendar').fullCalendar('clientEvents', function (events) {
+
+                        if (moment(events.start).format('YYYY-MM').trim() == cdate.trim()) {
+
+                            //console.log(moment(events.start).format('YYYY-MM'));
+                            monthEvents.push(events);
+
+                        }
+                    });
+
+                    var POA = 0, POD = 0, POE = 0;
+                    var ROA = 0, ROD = 0, ROE = 0;
+
+                    monthEvents.forEach(function (x) {
+
+                        if (x.description == "PAvailable") {
+                            POA++;
+                        } else if (x.description == "PDownloaded") {
+                            POD++;
+                        } else if (x.description == "PArchived") {
+                            POE++;
+                        } else if (x.description == "Processed") {
+                            ROA++;
+                        } else if (x.description == "Downloaded") {
+                            ROD++;                        
+                        } else if (x.description == "Archived") {
+                            ROE++;
+                        }
+
+                    });
+
+                    new Morris.Donut({
+                        element: 'sales-chart',
+                        resize: true,
+                        colors: ["#00a65a", "#dd4b39", "#d2d6de"],
+                        data: [
+                            { label: "Available", value: POA },
+                            { label: "Downloaded", value: POD },
+                            { label: "Archived", value: POE }
+                        ],
+                        hideHover: 'auto'
+                    });
+
+                    new Morris.Donut({
+                        element: 'rank-chart',
+                        resize: true,
+                        colors: ["#ff851b", "#0073b7",  "#ffc0cb"],
+                        data: [
+                            { label: "Processed", value: ROA },
+                            { label: "Downloaded", value: ROD },
+                            { label: "Archived", value: ROE }
+                        ],
+                        hideHover: 'auto'
+                    });
+
+                },                
+                eventAfterRender: function (event, element) {
+                    //element.find('.fc-title').append("<br/>" + event.description);
+                    
+                },
+                eventAfterAllRender: function (view) {
+                    console.log("Done!");
+                    $('#lodd').remove();
+                },
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                locale: 'en',
+                buttonText: {
+                    today: 'today',
+                    month: 'month'                  
+                },
+                events: events,
+                editable: false,
+                droppable: false,
+                eventClick: function (calEvent, jsEvent, view) {
+
+                    //alert('Event: ' + calEvent.title);
+                    //alert('View: ' + calEvent.name);
+                    //if (calEvent.status != "expired") {
+                    //    printJS({ printable: 'http://services.danubeco.com/supplier/' + calEvent.link, type: 'pdf', showModal: true })
+                    //    console.log(calEvent.link);
+
+                    //    // change the border color just for fun
+                    //    $(this).css('border-color', 'red');
+                    //}
+
+                    window.open('http://services.danubeco.com/supplier/' + calEvent.link, '_blank');
+
+                }
+            });
+        }
+
+        function Statistic(dte) {
+
+            $.ajax({
+                type: "GET",
+                url: "/Home/GetStatistic?cmonth=" + dte,
+                success: function (data) {
+
+                    new Morris.Donut({
+                        element: 'sales-chart',
+                        resize: true,
+                        colors: ["#00a65a", "#dd4b39", "#d2d6de"],
+                        data: [
+                            { label: "Available", value: data.POA },
+                            { label: "Downloaded", value: data.POD },
+                            { label: "Archived", value: data.POE }
+                        ],
+                        hideHover: 'auto'
+                    });
+
+                    new Morris.Donut({
+                        element: 'rank-chart',
+                        resize: true,
+                        colors: ["#0073b7", "#ff851b", "#ffc0cb"],
+                        data: [
+                            { label: "Processed", value: data.RKA },
+                            { label: "Downloaded", value: data.RKD },
+                            { label: "Archived", value: data.RKR }
+                        ],
+                        hideHover: 'auto'
+                    });
+
+                    console.log(data.RKD);
+                    console.log(data.RKR);
+
+                    console.log(data);
+
+                },
+                error: function (error) {
+                    alert('failed');
+                }
+            })
+
+
+        }
+
+
+    });
+
+
+</script>

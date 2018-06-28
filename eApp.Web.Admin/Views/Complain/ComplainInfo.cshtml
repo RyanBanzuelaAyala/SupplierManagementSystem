@@ -1,0 +1,93 @@
+﻿
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<style>
+    pre {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        border: none;
+        white-space: normal;
+        overflow: auto;
+    }
+
+    textarea {
+        resize: none;
+    }
+</style>
+
+<div class="row" ng-controller="ComplainController">
+
+    <div class="col-md-12">
+        <div class="nav-tabs-custom" style="background-color: #ecf0f5">
+
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-target="#person" data-toggle="tab" style="cursor: pointer">Complain Conversation</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                @if(ViewBag.IssueStatus == "new" || ViewBag.IssueStatus == "replied")
+                {
+                    <div class="active tab-pane" id="person">
+
+                        <div class="box-body">
+
+                            <ul class="timeline timeline-inverse">
+
+                                <span ng-show="!datalst.length">No Response...</span>
+
+                                <li ng-repeat="xx in datalst">
+
+                                    <div class="timeline-item" style="background-color: transparent; border: none">
+
+                                        <div class="post">
+                                            <div class="user-block">
+                                                <img src="~/Content/img/user.png" class="img-circle" alt="User Image">
+                                                <span class='username'>
+                                                    <a href="#">{{ xx.agentid }}</a>
+                                                </span>
+                                                <span class='description'>Shared publicly - {{ xx.remarks }}</span>
+                                            </div>
+                                            <pre>
+                                            {{ xx.reply }}
+                                        </pre>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <form class="form-horizontal" ng-submit="submitInfo()">
+                        <div class="form-group margin-bottom-none">
+                            <div class="col-sm-9">
+                                <input class="form-control input-sm" ng-model="in.rsp" placeholder="Response" name="respnse">
+                                <input type="hidden" id="issueid" value="@ViewBag.Issueid" />
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</button>
+                                <button type="button" class="btn btn-danger pull-right btn-block btn-sm" ng-click="submitSolve()">Solved</button>
+                            </div>
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <span> Supplier Issues Solved..</span>
+                }
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

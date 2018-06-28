@@ -1,0 +1,248 @@
+﻿
+
+
+<div class="row">
+    <div class="box box-solid">
+        <hr />
+    </div>
+</div>
+
+<div class="box box-solid">
+    <div class="box-body padding">
+        <!-- left column -->
+        <div class="col-md-6">
+            <h3>Supplier Number : <b> @ViewBag.Info </b></h3>
+            <p>below all the information of purchasing order(s).</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-solid">
+
+            <div class="box-body table-responsive padding">
+
+                <div class="box-body">
+
+
+                    <table id="example2" class="table table-bordered table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>
+                                    P.O.
+                                </th>
+                                <th>
+                                    Released
+                                </th>
+                                <th>
+                                    Region
+                                </th>
+                                <th>
+                                    Location
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="poes">
+                            @foreach(var user in ViewBag.Poes)
+                            {
+                                <tr>
+                                    <td>
+                                        @user.pono
+                                        <small class="label pull-right bg-orange">Expired : @user.expiration</small>
+                                    </td>
+                                    <td>
+                                        @user.released
+                                    </td>
+                                    <td>
+                                        @user.region
+                                    </td>
+                                    <td>
+                                        @GetBranch(user.location)
+
+                                        @functions {
+                                            public string GetBranch(string location)
+                                            {
+                                                var branch = "";
+                                                if(location == "00101")
+                                                { branch = "Herra"; }
+                                                else if(location == "00102")
+                                                { branch = "Khalidiya"; }
+                                                else if(location == "00103")
+                                                { branch = "Thalia"; }
+                                                else if(location == "00104")
+                                                { branch = "Nahda"; }
+                                                else if(location == "00105")
+                                                { branch = "Arbaeen"; }
+                                                else if(location == "00115")
+                                                { branch = "Serafi"; }
+                                                else if(location == "00122")
+                                                { branch = "RedSea"; }
+                                                else if(location == "00128")
+                                                { branch = "Alsalamah"; }
+                                                else if(location == "06016")
+                                                { branch = "StarBakery"; }
+                                                else if(location == "00120")
+                                                { branch = "Hayat"; }
+                                                else if(location == "00125")
+                                                { branch = "Panorama"; }
+                                                else if(location == "00129")
+                                                { branch = "Hittin"; }
+                                                else if(location == "00131")
+                                                { branch = "Alkharj"; }
+                                                else if(location == "00132")
+                                                { branch = "Nahkla"; }
+                                                else if(location == "00130")
+                                                { branch = "Khobar"; }
+                                                else if(location == "00133")
+                                                { branch = "Dammam"; }
+                                                else if(location == "00134")
+                                                { branch = "Yasmeen"; }
+                                                else if(location == "00136")
+                                                { branch = "Talal"; }
+                                                else if(location == "00113")
+                                                { branch = "Bahara"; }
+                                                else if(location == "6001")
+                                                { branch = "Shisha"; }
+                                                else if(location == "6002")
+                                                { branch = "Zahir"; }
+                                                else if(location == "6003")
+                                                { branch = "Hamra"; }
+                                                else if(location == "6004")
+                                                { branch = "Shola"; }
+                                                else if(location == "6006")
+                                                { branch = "Azizia"; }
+                                                else if(location == "6009")
+                                                { branch = "Sittin"; }
+                                                else if(location == "6011")
+                                                { branch = "Hijra"; }
+                                                else if(location == "6016")
+                                                { branch = "Rabwah"; }
+                                                else if(location == "6019")
+                                                { branch = "Awali"; }
+                                                else if(location == "6023")
+                                                { branch = "RUSAIFAH"; }
+                                                else if(location == "6027")
+                                                { branch = "ROTANA"; }
+                                                else if(location == "6028")
+                                                { branch = "KAKIA"; }
+                                                else if(location == "6029")
+                                                { branch = "HERRA"; }
+                                                else if(location == "6032")
+                                                { branch = "AYA MALL"; }
+                                                else if(location == "6034")
+                                                { branch = "JAMMAT"; }
+                                                else if(location == "6101")
+                                                { branch = "Madinah"; }
+                                                else if(location == "6102")
+                                                { branch = "Khalidya"; }
+                                                else if(location == "6103")
+                                                { branch = "Tahliya"; }
+                                                else if(location == "6104")
+                                                { branch = "Nahda"; }
+                                                else if(location == "6105")
+                                                { branch = "Arabayeen"; }
+                                                else if(location == "6106")
+                                                { branch = "BI-CYCLE"; }
+                                                else if(location == "6107")
+                                                { branch = "SABAEEN"; }
+                                                else if(location == "6119")
+                                                { branch = "HERRA R"; }
+                                                else if(location == "6110")
+                                                { branch = "Khalidiya R"; }
+                                                else if(location == "6113")
+                                                { branch = "Star Bakery"; }
+                                                else if(location == "6115")
+                                                { branch = "STAR SAIRAFI"; }
+                                                else if(location == "6116")
+                                                { branch = "Serafi R"; }
+                                                else if(location == "6117")
+                                                { branch = "STAR - RETURNABLES"; }
+                                                else if(location == "6119")
+                                                { branch = "SERAFI CATERING"; }
+                                                else if(location == "6120")
+                                                { branch = "Star Hayat"; }
+                                                else if(location == "6121")
+                                                { branch = "STAR HAYAT R"; }
+                                                else if(location == "6122")
+                                                { branch = "RED SEA"; }
+                                                else if(location == "6123")
+                                                { branch = "RED SEA R"; }
+                                                else if(location == "6124")
+                                                { branch = "CENTRAL BAKERY"; }
+                                                else if(location == "6125")
+                                                { branch = "PANORAM BAKERY"; }
+                                                else if(location == "6128")
+                                                { branch = "CENTRAL PARK BAKERY"; }
+                                                else if(location == "6129")
+                                                { branch = "HITTIN BAKERY"; }
+                                                else if(location == "6130")
+                                                { branch = "STAR AL-KHOBAR"; }
+                                                else if(location == "6131")
+                                                { branch = "AL-KHARJ BAKERY"; }
+                                                else if(location == "6132")
+                                                { branch = "NAKHLA BAKERY"; }
+                                                else if(location == "6133")
+                                                { branch = "FAISLIYA BAKERY"; }
+                                                else if(location == "6134")
+                                                { branch = "YASMIN BAKERY"; }
+                                                else if(location == "6135")
+                                                { branch = "DANUBE CENTRAL BAKERY"; }
+                                                else if(location == "6136")
+                                                { branch = "TILAL BAKERY"; }
+                                                else if(location == "6137")
+                                                { branch = "TILAL BAKERY"; }
+                                                else if(location == "6138")
+                                                { branch = "AL WADI BAKERY"; }
+
+                                                return branch;
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @user.filestatus
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div><!-- /.box-body -->
+        </div>
+
+    </div><!-- /.col -->
+
+
+    <div class="col-xs-12">
+
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- iCheck -->
+<link href="~/Scripts/Javascript/plugins/iCheck/square/purple.css" rel="stylesheet" />
+<!-- iCheck -->
+<script src="~/Scripts/Javascript/plugins/iCheck/icheck.min.js"></script>
+<!-- DataTables -->
+<script src="~/Scripts/Javascript/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Scripts/Javascript/plugins/datatables/dataTables.bootstrap.css">
+
+<!-- page script -->
+<script>
+    $(function () {
+        $('#example2').DataTable({
+            "paging": true,
+        });
+
+    });
+</script>
+
+
